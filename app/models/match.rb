@@ -1,5 +1,4 @@
 class Match < ActiveRecord::Base
-  require 'match_format'
   include MatchFormat
 
   @@matches_updated = false
@@ -26,10 +25,6 @@ class Match < ActiveRecord::Base
   }
   def self.round_options
     ['Vorrunde', 'Achtelfinale', 'Viertelfinale', 'Halbfinale', 'Spiel um Platz Drei','Finale']
-  end
-
-  def finished?
-    has_goals?
   end
 
   def finished_goals_team_1
