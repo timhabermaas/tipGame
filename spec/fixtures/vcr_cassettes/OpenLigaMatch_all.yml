@@ -1,0 +1,913 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.openligadb.de/Webservices/Sportsdata.asmx?WSDL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, max-age=0
+      Content-Type:
+      - text/xml; charset=utf-8
+      Server:
+      - Microsoft-IIS/7.0
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Tue, 29 May 2012 22:31:01 GMT
+      Content-Length:
+      - '59191'
+    body:
+      encoding: ASCII-8BIT
+      string: ! "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<wsdl:definitions xmlns:s=\"http://www.w3.org/2001/XMLSchema\"
+        xmlns:soap12=\"http://schemas.xmlsoap.org/wsdl/soap12/\" xmlns:mime=\"http://schemas.xmlsoap.org/wsdl/mime/\"
+        xmlns:tns=\"http://msiggi.de/Sportsdata/Webservices\" xmlns:soap=\"http://schemas.xmlsoap.org/wsdl/soap/\"
+        xmlns:tm=\"http://microsoft.com/wsdl/mime/textMatching/\" xmlns:http=\"http://schemas.xmlsoap.org/wsdl/http/\"
+        xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\" targetNamespace=\"http://msiggi.de/Sportsdata/Webservices\"
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">\r\n  <wsdl:types>\r\n    <s:schema
+        elementFormDefault=\"qualified\" targetNamespace=\"http://msiggi.de/Sportsdata/Webservices\">\r\n
+        \     <s:element name=\"GetAvailLeagues\">\r\n        <s:complexType />\r\n
+        \     </s:element>\r\n      <s:element name=\"GetAvailLeaguesResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetAvailLeaguesResult\" type=\"tns:ArrayOfLeague\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"ArrayOfLeague\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"League\" type=\"tns:League\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"League\">\r\n        <s:sequence>\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"leagueID\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"leagueSportID\" type=\"s:int\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"leagueName\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"leagueShortcut\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"leagueSaison\" type=\"s:string\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:element name=\"GetNextMatch\">\r\n        <s:complexType>\r\n          <s:sequence>\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"leagueShortcut\"
+        type=\"s:string\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetNextMatchResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"GetNextMatchResult\" type=\"tns:Matchdata\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"Matchdata\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"matchID\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"matchDateTime\" type=\"s:dateTime\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"TimeZoneID\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"matchDateTimeUTC\" type=\"s:dateTime\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"groupID\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"groupOrderID\" type=\"s:int\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"groupName\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"leagueID\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"leagueName\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"leagueSaison\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"leagueShortcut\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"nameTeam1\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"nameTeam2\" type=\"s:string\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"idTeam1\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"idTeam2\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"iconUrlTeam1\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"iconUrlTeam2\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"pointsTeam1\" type=\"s:int\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"pointsTeam2\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"lastUpdate\" type=\"s:dateTime\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"matchIsFinished\"
+        type=\"s:boolean\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"matchResults\" type=\"tns:ArrayOfMatchResult\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"goals\" type=\"tns:ArrayOfGoal\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"location\" type=\"tns:Location\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"NumberOfViewers\"
+        nillable=\"true\" type=\"s:int\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"ArrayOfMatchResult\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"matchResult\"
+        type=\"tns:matchResult\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"matchResult\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"resultName\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"pointsTeam1\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"pointsTeam2\" type=\"s:int\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"resultOrderID\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"resultTypeName\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"resultTypeId\"
+        type=\"s:int\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"ArrayOfGoal\">\r\n        <s:sequence>\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"unbounded\" name=\"Goal\" type=\"tns:Goal\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"Goal\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"goalID\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"goalMachID\"
+        nillable=\"true\" type=\"s:int\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"goalScoreTeam1\" nillable=\"true\" type=\"s:int\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"goalScoreTeam2\"
+        nillable=\"true\" type=\"s:int\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"goalMatchMinute\" nillable=\"true\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"goalGetterID\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"goalGetterName\" type=\"s:string\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"goalPenalty\" nillable=\"true\" type=\"s:boolean\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"goalOwnGoal\"
+        nillable=\"true\" type=\"s:boolean\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"goalOvertime\" nillable=\"true\" type=\"s:boolean\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"goalComment\"
+        type=\"s:string\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"Location\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"locationID\" type=\"s:int\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"locationCity\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"locationStadium\" type=\"s:string\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:element name=\"GetLastMatch\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"leagueShortcut\" type=\"s:string\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GetLastMatchResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"GetLastMatchResult\" type=\"tns:Matchdata\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetNextMatchByLeagueTeam\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"leagueId\" type=\"s:int\" />\r\n            <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"teamId\" type=\"s:int\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GetNextMatchByLeagueTeamResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"GetNextMatchByLeagueTeamResult\" type=\"tns:Matchdata\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetLastMatchByLeagueTeam\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"leagueId\" type=\"s:int\" />\r\n            <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"teamId\" type=\"s:int\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GetLastMatchByLeagueTeamResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"GetLastMatchByLeagueTeamResult\" type=\"tns:Matchdata\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetCurrentGroupOrderID\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"leagueShortcut\" type=\"s:string\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GetCurrentGroupOrderIDResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"GetCurrentGroupOrderIDResult\" type=\"s:int\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetCurrentGroup\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"leagueShortcut\" type=\"s:string\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GetCurrentGroupResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"GetCurrentGroupResult\" type=\"tns:Group\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"Group\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"groupName\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"groupOrderID\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"groupID\" type=\"s:int\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:element name=\"GetMatchdataByGroupLeagueSaison\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"groupOrderID\" type=\"s:int\" />\r\n            <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"leagueShortcut\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"leagueSaison\" type=\"s:string\" />\r\n
+        \         </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetMatchdataByGroupLeagueSaisonResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"GetMatchdataByGroupLeagueSaisonResult\" type=\"tns:ArrayOfMatchdata\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"ArrayOfMatchdata\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"Matchdata\"
+        type=\"tns:Matchdata\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:element name=\"GetMatchdataByLeagueDateTime\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"fromDateTime\" type=\"s:dateTime\" />\r\n            <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"toDateTime\" type=\"s:dateTime\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"leagueShortcut\" type=\"s:string\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetMatchdataByLeagueDateTimeResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"GetMatchdataByLeagueDateTimeResult\" type=\"tns:ArrayOfMatchdata\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetMatchdataByTeams\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"teamID1\" type=\"s:int\" />\r\n            <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"teamID2\" type=\"s:int\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GetMatchdataByTeamsResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetMatchdataByTeamsResult\" type=\"tns:ArrayOfMatchdata\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetMatchdataByLeagueSaison\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"leagueShortcut\" type=\"s:string\" />\r\n            <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"leagueSaison\" type=\"s:string\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GetMatchdataByLeagueSaisonResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetMatchdataByLeagueSaisonResult\"
+        type=\"tns:ArrayOfMatchdata\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetMatchdataByGroupLeagueSaisonJSON\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"groupOrderID\" type=\"s:int\" />\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"leagueShortcut\"
+        type=\"s:string\" />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"leagueSaison\" type=\"s:string\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GetMatchdataByGroupLeagueSaisonJSONResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetMatchdataByGroupLeagueSaisonJSONResult\"
+        type=\"s:string\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetFusballdaten\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"Spieltag\" type=\"s:int\" />\r\n            <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Liga\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"Saison\" type=\"s:int\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Userkennung\" type=\"s:string\" />\r\n
+        \         </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetFusballdatenResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"GetFusballdatenResult\" type=\"tns:ArrayOfFussballdaten\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:complexType name=\"ArrayOfFussballdaten\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"Fussballdaten\" type=\"tns:Fussballdaten\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"Fussballdaten\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"SpielID\" type=\"s:int\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"Spieltag\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"Spieldatum\" type=\"s:dateTime\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Team1\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Team2\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"ErgebnisTeam1\" type=\"s:int\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"ErgebnisTeam2\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"lastUpdate\" type=\"s:dateTime\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:element name=\"GetMatchByMatchID\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"MatchID\" type=\"s:int\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GetMatchByMatchIDResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"GetMatchByMatchIDResult\" type=\"tns:Matchdata\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetTeamsByLeagueSaison\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"leagueShortcut\" type=\"s:string\" />\r\n            <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"leagueSaison\" type=\"s:string\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GetTeamsByLeagueSaisonResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetTeamsByLeagueSaisonResult\" type=\"tns:ArrayOfTeam\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"ArrayOfTeam\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"Team\" type=\"tns:Team\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"Team\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"teamID\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"teamName\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"teamIconURL\" type=\"s:string\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:element name=\"GetAvailGroups\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"leagueShortcut\" type=\"s:string\"
+        />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"leagueSaison\"
+        type=\"s:string\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetAvailGroupsResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetAvailGroupsResult\" type=\"tns:ArrayOfGroup\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"ArrayOfGroup\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"Group\" type=\"tns:Group\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:element
+        name=\"GetAvailSports\">\r\n        <s:complexType />\r\n      </s:element>\r\n
+        \     <s:element name=\"GetAvailSportsResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"GetAvailSportsResult\" type=\"tns:ArrayOfSport\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:complexType name=\"ArrayOfSport\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"Sport\" nillable=\"true\" type=\"tns:Sport\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"Sport\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"sportsID\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"sportsName\"
+        type=\"s:string\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:element name=\"GetAvailLeaguesBySports\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"sportID\" type=\"s:int\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetAvailLeaguesBySportsResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetAvailLeaguesBySportsResult\" type=\"tns:ArrayOfLeague\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetGoalsByMatch\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"MatchID\" type=\"s:int\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetGoalsByMatchResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetGoalsByMatchResult\" type=\"tns:ArrayOfGoal\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetGoalsByLeagueSaison\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"leagueShortcut\" type=\"s:string\" />\r\n            <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"leagueSaison\" type=\"s:string\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GetGoalsByLeagueSaisonResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetGoalsByLeagueSaisonResult\" type=\"tns:ArrayOfGoal\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetGoalGettersByLeagueSaison\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"leagueShortcut\" type=\"s:string\" />\r\n            <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"leagueSaison\" type=\"s:string\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GetGoalGettersByLeagueSaisonResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetGoalGettersByLeagueSaisonResult\"
+        type=\"tns:ArrayOfGoalGetter\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:complexType name=\"ArrayOfGoalGetter\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"GoalGetter\" type=\"tns:GoalGetter\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"GoalGetter\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"goalGetterID\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"goalGetterName\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"goalGetterNationality\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"goalGetterBirthday\" nillable=\"true\"
+        type=\"s:dateTime\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"goalGetterGoalCount\" nillable=\"true\" type=\"s:int\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:element name=\"GetLastChangeDateByLeagueSaison\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"leagueShortcut\" type=\"s:string\"
+        />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"leagueSaison\"
+        type=\"s:string\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetLastChangeDateByLeagueSaisonResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"GetLastChangeDateByLeagueSaisonResult\"
+        type=\"s:dateTime\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetLastChangeDateByGroupLeagueSaison\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"groupOrderID\" type=\"s:int\" />\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"leagueShortcut\"
+        type=\"s:string\" />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"leagueSaison\" type=\"s:string\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GetLastChangeDateByGroupLeagueSaisonResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"GetLastChangeDateByGroupLeagueSaisonResult\"
+        type=\"s:dateTime\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n    </s:schema>\r\n  </wsdl:types>\r\n  <wsdl:message
+        name=\"GetAvailLeaguesSoapIn\">\r\n    <wsdl:part name=\"parameters\" element=\"tns:GetAvailLeagues\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetAvailLeaguesSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetAvailLeaguesResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetNextMatchSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetNextMatch\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetNextMatchSoapOut\">\r\n    <wsdl:part name=\"parameters\"
+        element=\"tns:GetNextMatchResponse\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetLastMatchSoapIn\">\r\n    <wsdl:part name=\"parameters\" element=\"tns:GetLastMatch\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetLastMatchSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetLastMatchResponse\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"GetNextMatchByLeagueTeamSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetNextMatchByLeagueTeam\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetNextMatchByLeagueTeamSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetNextMatchByLeagueTeamResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetLastMatchByLeagueTeamSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetLastMatchByLeagueTeam\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetLastMatchByLeagueTeamSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetLastMatchByLeagueTeamResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetCurrentGroupOrderIDSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetCurrentGroupOrderID\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetCurrentGroupOrderIDSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetCurrentGroupOrderIDResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetCurrentGroupSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetCurrentGroup\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"GetCurrentGroupSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetCurrentGroupResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetMatchdataByGroupLeagueSaisonSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetMatchdataByGroupLeagueSaison\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetMatchdataByGroupLeagueSaisonSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetMatchdataByGroupLeagueSaisonResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetMatchdataByLeagueDateTimeSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetMatchdataByLeagueDateTime\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetMatchdataByLeagueDateTimeSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetMatchdataByLeagueDateTimeResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetMatchdataByTeamsSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetMatchdataByTeams\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"GetMatchdataByTeamsSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetMatchdataByTeamsResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetMatchdataByLeagueSaisonSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetMatchdataByLeagueSaison\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetMatchdataByLeagueSaisonSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetMatchdataByLeagueSaisonResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetMatchdataByGroupLeagueSaisonJSONSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetMatchdataByGroupLeagueSaisonJSON\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetMatchdataByGroupLeagueSaisonJSONSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetMatchdataByGroupLeagueSaisonJSONResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetFusballdatenSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetFusballdaten\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"GetFusballdatenSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetFusballdatenResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetMatchByMatchIDSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetMatchByMatchID\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"GetMatchByMatchIDSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetMatchByMatchIDResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetTeamsByLeagueSaisonSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetTeamsByLeagueSaison\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetTeamsByLeagueSaisonSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetTeamsByLeagueSaisonResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetAvailGroupsSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetAvailGroups\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetAvailGroupsSoapOut\">\r\n    <wsdl:part name=\"parameters\"
+        element=\"tns:GetAvailGroupsResponse\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetAvailSportsSoapIn\">\r\n    <wsdl:part name=\"parameters\" element=\"tns:GetAvailSports\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetAvailSportsSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetAvailSportsResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetAvailLeaguesBySportsSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetAvailLeaguesBySports\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetAvailLeaguesBySportsSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetAvailLeaguesBySportsResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetGoalsByMatchSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetGoalsByMatch\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"GetGoalsByMatchSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetGoalsByMatchResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetGoalsByLeagueSaisonSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetGoalsByLeagueSaison\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetGoalsByLeagueSaisonSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetGoalsByLeagueSaisonResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetGoalGettersByLeagueSaisonSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetGoalGettersByLeagueSaison\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetGoalGettersByLeagueSaisonSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetGoalGettersByLeagueSaisonResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetLastChangeDateByLeagueSaisonSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetLastChangeDateByLeagueSaison\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetLastChangeDateByLeagueSaisonSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetLastChangeDateByLeagueSaisonResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetLastChangeDateByGroupLeagueSaisonSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetLastChangeDateByGroupLeagueSaison\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetLastChangeDateByGroupLeagueSaisonSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetLastChangeDateByGroupLeagueSaisonResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:portType name=\"SportsdataSoap\">\r\n    <wsdl:operation
+        name=\"GetAvailLeagues\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt
+        eine Struktur aller verfügbaren Ligen zurück! Erwartet keine Parameter. Das
+        Ergebnis dieser Abfrage unterliegt einem serverseitigen Cache von 600 Sekunden.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetAvailLeaguesSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GetAvailLeaguesSoapOut\" />\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetNextMatch\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt
+        eine Struktur des nächsten anstehenden Spieles der als Parameter zu übergebenden
+        Liga zurueck.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetNextMatchSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetNextMatchSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetLastMatch\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt
+        eine Struktur des zuletzt ausgetragenen Spieles der als Parameter zu übergebenden
+        Liga zurueck.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetLastMatchSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetLastMatchSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetNextMatchByLeagueTeam\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt eine Struktur des  nächsten
+        anstehenden Spieles des als Parameter zu übergebenden Teams der ebenfalls
+        zu übergebenen Liga zurueck.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetNextMatchByLeagueTeamSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetNextMatchByLeagueTeamSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetLastMatchByLeagueTeam\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt
+        eine Struktur des zuletzt ausgetragenen Spieles des als Parameter zu übergebenden
+        Teams der ebenfalls zu übergebenen Liga zurueck.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetLastMatchByLeagueTeamSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GetLastMatchByLeagueTeamSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetCurrentGroupOrderID\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt die aktuelle groupOrderID
+        (entspricht z.B. bei der Fussball-Bundesliga dem 'Spieltag') des als Parameter
+        zu übergebenden leagueShortcuts (z.B. 'bl1') aus. Der aktuelle Spieltag wird
+        jeweils zur Hälfte der Zeit zwischen dem letzten Spiel des letzten Spieltages
+        und dem ersten Spiel des nächsten Spieltages erhöht.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetCurrentGroupOrderIDSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GetCurrentGroupOrderIDSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetCurrentGroup\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt die aktuelle Group (entspricht
+        z.B. bei der Fussball-Bundesliga dem 'Spieltag') des als Parameter zu übergebenden
+        leagueShortcuts (z.B. 'bl1') aus. Der aktuelle Spieltag wird jeweils zur Hälfte
+        der Zeit zwischen dem letzten Spiel des letzten Spieltages und dem ersten
+        Spiel des nächsten Spieltages erhöht.</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:GetCurrentGroupSoapIn\" />\r\n      <wsdl:output message=\"tns:GetCurrentGroupSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetMatchdataByGroupLeagueSaison\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt
+        eine Struktur von Sport-Spieldaten zurueck. Als Parameter werden eine groupOrderID
+        (zu entnehmen aus GetAvailGroups, entspricht z.B. bei der Fussball-Bundesliga
+        dem Spieltag), der Liga-Shortcut (z.B. 'bl1') sowie die Saison (aus GetAvailLeagues,
+        z.B. '2009') erwartet. Das Ergebnis dieser Abfrage unterliegt einem serverseitigen
+        Cache von 60 Sekunden.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetMatchdataByGroupLeagueSaisonSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetMatchdataByGroupLeagueSaisonSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetMatchdataByLeagueDateTime\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt
+        eine Struktur von Sport-Spieldaten zurueck. Die Beginn-Zeit der ausgegebenen
+        Spieldaten liegt zwischen den als Parameter zu übergebenen DateTime-Werten.
+        (fromDateTime &lt;= matchBeginDateTime &lt; toDateTime)Als weiterer Parameter
+        wird der Liga-Shortcut (z.B. 'bl1') erwartet.</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:GetMatchdataByLeagueDateTimeSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GetMatchdataByLeagueDateTimeSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetMatchdataByTeams\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt eine Struktur von Matches
+        zurück, bei welchen die als Parameter übergebenen Teams gegeneinander spielten.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetMatchdataByTeamsSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GetMatchdataByTeamsSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetMatchdataByLeagueSaison\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt eine Struktur von Sport-Spieldaten
+        aller Spiele der Liga pro Saison zurueck. Als Parameter werden der Liga-Shortcut
+        (z.B. 'bl1') sowie die Saison (aus GetAvailLeagues, z.B. '2007') erwartet.
+        Das Ergebnis dieser Abfrage unterliegt einem serverseitigen Cache von 300
+        Sekunden.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetMatchdataByLeagueSaisonSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetMatchdataByLeagueSaisonSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetMatchdataByGroupLeagueSaisonJSON\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt
+        einen serialisiertes JSON-Objekt von Sport-Spieldaten zurueck. Als Parameter
+        werden eine groupOrderID (zu entnehmen aus GetAvailGroups, entspricht z.B.
+        bei der Fussball-Bundesliga dem Spieltag), der Liga-Shortcut (z.B. 'bl1')
+        sowie die Saison (aus GetAvailLeagues, z.B. '2009') erwartet. Das Ergebnis
+        dieser Abfrage unterliegt einem serverseitigen Cache von 60 Sekunden.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetMatchdataByGroupLeagueSaisonJSONSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetMatchdataByGroupLeagueSaisonJSONSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetFusballdaten\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt
+        eine Struktur deutscher Fussball-Spieldaten zurueck. Diese Methode steht nur
+        noch aus Gründen der Kompatibilität zu älteren Applikationen zur Verfügung.
+        Bitte nutzen sie vorrangig die GetMatchdata... - Methoden!</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetFusballdatenSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GetFusballdatenSoapOut\" />\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetMatchByMatchID\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt
+        eine Struktur des Spieles der als Parameter zu übergebenden MatchID zurueck.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetMatchByMatchIDSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GetMatchByMatchIDSoapOut\" />\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetTeamsByLeagueSaison\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt
+        eine Liste aller Teams der als Parameter zu übergebenden Liga + Saison zurueck.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetTeamsByLeagueSaisonSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GetTeamsByLeagueSaisonSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetAvailGroups\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt eine Liste der bereits
+        eingetragenen Spiel-Einteilungen (Spieltag, Vorrunde, Finale, ...) der als
+        Parameter zu übergebenden Liga + Saison zurueck.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetAvailGroupsSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GetAvailGroupsSoapOut\" />\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetAvailSports\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt
+        eine Liste der verfügbaren Sportarten, für welche gültige Ligen bestehen,
+        zurück. Erwartet keine Parameter</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:GetAvailSportsSoapIn\" />\r\n      <wsdl:output message=\"tns:GetAvailSportsSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetAvailLeaguesBySports\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt
+        eine Struktur aller verfügbaren Ligen für die zu übergebende SportID zurück.
+        Diese ist aus 'GetAvailSports()' zu entnehmen!</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:GetAvailLeaguesBySportsSoapIn\" />\r\n      <wsdl:output message=\"tns:GetAvailLeaguesBySportsSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetGoalsByMatch\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt
+        eine Liste aller Goals des als Parameter zu übergebenden Match zurueck.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetGoalsByMatchSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GetGoalsByMatchSoapOut\" />\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetGoalsByLeagueSaison\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt
+        eine Liste aller Goals der als Parameter zu übergebenden Liga + Saison zurueck.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetGoalsByLeagueSaisonSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GetGoalsByLeagueSaisonSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetGoalGettersByLeagueSaison\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt eine Liste der GoalGetter
+        der als Parameter zu übergebenden Liga + Saison zurueck.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetGoalGettersByLeagueSaisonSoapIn\" />\r\n
+        \     <wsdl:output message=\"tns:GetGoalGettersByLeagueSaisonSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetLastChangeDateByLeagueSaison\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt
+        das Datum der letzten Änderung in der als Parameter zu übergebenden Liga +
+        Saison zurueck. Kann verwendet werden, um clientseitg unnötige Abfragen zu
+        vermeiden (Cache)</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetLastChangeDateByLeagueSaisonSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetLastChangeDateByLeagueSaisonSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetLastChangeDateByGroupLeagueSaison\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Gibt
+        das Datum der letzten Änderung in der als Parameter zu übergebenden Liga +
+        Saison zurueck. Kann verwendet werden, um clientseitg unnötige Abfragen zu
+        vermeiden (Cache)</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetLastChangeDateByGroupLeagueSaisonSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetLastChangeDateByGroupLeagueSaisonSoapOut\"
+        />\r\n    </wsdl:operation>\r\n  </wsdl:portType>\r\n  <wsdl:binding name=\"SportsdataSoap\"
+        type=\"tns:SportsdataSoap\">\r\n    <soap:binding transport=\"http://schemas.xmlsoap.org/soap/http\"
+        />\r\n    <wsdl:operation name=\"GetAvailLeagues\">\r\n      <soap:operation
+        soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetAvailLeagues\" style=\"document\"
+        />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\" />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <soap:body use=\"literal\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetNextMatch\">\r\n      <soap:operation
+        soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetNextMatch\" style=\"document\"
+        />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\" />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <soap:body use=\"literal\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetLastMatch\">\r\n      <soap:operation
+        soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetLastMatch\" style=\"document\"
+        />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\" />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <soap:body use=\"literal\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetNextMatchByLeagueTeam\">\r\n
+        \     <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetNextMatchByLeagueTeam\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetLastMatchByLeagueTeam\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetLastMatchByLeagueTeam\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCurrentGroupOrderID\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetCurrentGroupOrderID\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCurrentGroup\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetCurrentGroup\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetMatchdataByGroupLeagueSaison\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetMatchdataByGroupLeagueSaison\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetMatchdataByLeagueDateTime\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetMatchdataByLeagueDateTime\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetMatchdataByTeams\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetMatchdataByTeams\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetMatchdataByLeagueSaison\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetMatchdataByLeagueSaison\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetMatchdataByGroupLeagueSaisonJSON\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetMatchdataByGroupLeagueSaisonJSON\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetFusballdaten\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetFusballdaten\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetMatchByMatchID\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetMatchByMatchID\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetTeamsByLeagueSaison\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetTeamsByLeagueSaison\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetAvailGroups\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetAvailGroups\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetAvailSports\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetAvailSports\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetAvailLeaguesBySports\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetAvailLeaguesBySports\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetGoalsByMatch\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetGoalsByMatch\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetGoalsByLeagueSaison\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetGoalsByLeagueSaison\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetGoalGettersByLeagueSaison\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetGoalGettersByLeagueSaison\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetLastChangeDateByLeagueSaison\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetLastChangeDateByLeagueSaison\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetLastChangeDateByGroupLeagueSaison\">\r\n      <soap:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetLastChangeDateByGroupLeagueSaison\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n  </wsdl:binding>\r\n
+        \ <wsdl:binding name=\"SportsdataSoap12\" type=\"tns:SportsdataSoap\">\r\n
+        \   <soap12:binding transport=\"http://schemas.xmlsoap.org/soap/http\" />\r\n
+        \   <wsdl:operation name=\"GetAvailLeagues\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetAvailLeagues\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetNextMatch\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetNextMatch\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetLastMatch\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetLastMatch\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetNextMatchByLeagueTeam\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetNextMatchByLeagueTeam\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetLastMatchByLeagueTeam\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetLastMatchByLeagueTeam\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCurrentGroupOrderID\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetCurrentGroupOrderID\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCurrentGroup\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetCurrentGroup\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetMatchdataByGroupLeagueSaison\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetMatchdataByGroupLeagueSaison\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetMatchdataByLeagueDateTime\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetMatchdataByLeagueDateTime\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetMatchdataByTeams\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetMatchdataByTeams\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetMatchdataByLeagueSaison\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetMatchdataByLeagueSaison\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetMatchdataByGroupLeagueSaisonJSON\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetMatchdataByGroupLeagueSaisonJSON\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetFusballdaten\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetFusballdaten\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetMatchByMatchID\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetMatchByMatchID\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetTeamsByLeagueSaison\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetTeamsByLeagueSaison\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetAvailGroups\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetAvailGroups\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetAvailSports\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetAvailSports\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetAvailLeaguesBySports\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetAvailLeaguesBySports\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetGoalsByMatch\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetGoalsByMatch\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetGoalsByLeagueSaison\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetGoalsByLeagueSaison\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetGoalGettersByLeagueSaison\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetGoalGettersByLeagueSaison\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetLastChangeDateByLeagueSaison\">\r\n      <soap12:operation soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetLastChangeDateByLeagueSaison\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetLastChangeDateByGroupLeagueSaison\">\r\n      <soap12:operation
+        soapAction=\"http://msiggi.de/Sportsdata/Webservices/GetLastChangeDateByGroupLeagueSaison\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n  </wsdl:binding>\r\n
+        \ <wsdl:service name=\"Sportsdata\">\r\n    <wsdl:port name=\"SportsdataSoap\"
+        binding=\"tns:SportsdataSoap\">\r\n      <soap:address location=\"http://www.openligadb.de/Webservices/Sportsdata.asmx\"
+        />\r\n    </wsdl:port>\r\n    <wsdl:port name=\"SportsdataSoap12\" binding=\"tns:SportsdataSoap12\">\r\n
+        \     <soap12:address location=\"http://www.openligadb.de/Webservices/Sportsdata.asmx\"
+        />\r\n    </wsdl:port>\r\n  </wsdl:service>\r\n</wsdl:definitions>"
+    http_version: 
+  recorded_at: Tue, 29 May 2012 22:31:36 GMT
+- request:
+    method: post
+    uri: http://www.openligadb.de/Webservices/Sportsdata.asmx
+    body:
+      encoding: US-ASCII
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://msiggi.de/Sportsdata/Webservices"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="http://msiggi.de/Sportsdata/Webservices"><env:Body><ins0:GetMatchdataByLeagueSaison><ins0:leagueShortcut>em12</ins0:leagueShortcut><ins0:leagueSaison>2012</ins0:leagueSaison></ins0:GetMatchdataByLeagueSaison></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - ! '"http://msiggi.de/Sportsdata/Webservices/GetMatchdataByLeagueSaison"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '504'
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, max-age=0
+      Content-Type:
+      - text/xml; charset=utf-8
+      Server:
+      - Microsoft-IIS/7.0
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Tue, 29 May 2012 22:31:02 GMT
+      Content-Length:
+      - '26737'
+    body:
+      encoding: ASCII-8BIT
+      string: <?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><GetMatchdataByLeagueSaisonResponse
+        xmlns="http://msiggi.de/Sportsdata/Webservices"><GetMatchdataByLeagueSaisonResult><Matchdata><matchID>18795</matchID><matchDateTime>2012-06-08T18:00:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-08T16:00:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Polen</nameTeam1><nameTeam2>Griechenland</nameTeam2><idTeam1>148</idTeam1><idTeam2>142</idTeam2><iconUrlTeam1>http://www.openligadb.de/images/teamicons/Polen.gif</iconUrlTeam1><iconUrlTeam2>http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Greece.svg/20px-Flag_of_Greece.svg.png</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-10T13:55:19.407</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>519</locationID><locationCity>Warschau</locationCity><locationStadium>Nationalstadion
+        Warschau</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18796</matchID><matchDateTime>2012-06-08T20:45:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-08T18:45:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Russland</nameTeam1><nameTeam2>Tschechien</nameTeam2><idTeam1>150</idTeam1><idTeam2>141</idTeam2><iconUrlTeam1>http://www.openligadb.de/images/teamicons/Russland.gif</iconUrlTeam1><iconUrlTeam2>http://www.openligadb.de/images/teamicons/Tschechien.gif</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-10T13:55:46.81</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>520</locationID><locationCity>Breslau</locationCity><locationStadium>Stadion
+        Miejski</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18797</matchID><matchDateTime>2012-06-12T20:45:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-12T18:45:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Polen</nameTeam1><nameTeam2>Russland</nameTeam2><idTeam1>148</idTeam1><idTeam2>150</idTeam2><iconUrlTeam1>http://www.openligadb.de/images/teamicons/Polen.gif</iconUrlTeam1><iconUrlTeam2>http://www.openligadb.de/images/teamicons/Russland.gif</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:16:29.85</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>519</locationID><locationCity>Warschau</locationCity><locationStadium>Nationalstadion
+        Warschau</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18798</matchID><matchDateTime>2012-06-12T18:00:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-12T16:00:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Griechenland</nameTeam1><nameTeam2>Tschechien</nameTeam2><idTeam1>142</idTeam1><idTeam2>141</idTeam2><iconUrlTeam1>http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Greece.svg/20px-Flag_of_Greece.svg.png</iconUrlTeam1><iconUrlTeam2>http://www.openligadb.de/images/teamicons/Tschechien.gif</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:16:29.097</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>520</locationID><locationCity>Breslau</locationCity><locationStadium>Stadion
+        Miejski</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18799</matchID><matchDateTime>2012-06-16T20:45:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-16T18:45:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Griechenland</nameTeam1><nameTeam2>Russland</nameTeam2><idTeam1>142</idTeam1><idTeam2>150</idTeam2><iconUrlTeam1>http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Greece.svg/20px-Flag_of_Greece.svg.png</iconUrlTeam1><iconUrlTeam2>http://www.openligadb.de/images/teamicons/Russland.gif</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:14:41.913</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>519</locationID><locationCity>Warschau</locationCity><locationStadium>Nationalstadion
+        Warschau</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18800</matchID><matchDateTime>2012-06-16T20:45:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-16T18:45:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Tschechien</nameTeam1><nameTeam2>Polen</nameTeam2><idTeam1>141</idTeam1><idTeam2>148</idTeam2><iconUrlTeam1>http://www.openligadb.de/images/teamicons/Tschechien.gif</iconUrlTeam1><iconUrlTeam2>http://www.openligadb.de/images/teamicons/Polen.gif</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:15:02.473</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>520</locationID><locationCity>Breslau</locationCity><locationStadium>Stadion
+        Miejski</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18801</matchID><matchDateTime>2012-06-09T18:00:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-09T16:00:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Niederlande</nameTeam1><nameTeam2>Dänemark</nameTeam2><idTeam1>147</idTeam1><idTeam2>758</idTeam2><iconUrlTeam1>http://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/20px-Flag_of_the_Netherlands.svg.png</iconUrlTeam1><iconUrlTeam2>http://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/20px-Flag_of_Denmark.svg.png</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-10T13:56:26.573</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>521</locationID><locationCity>Charkiw</locationCity><locationStadium>Metalist
+        Stadium</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18802</matchID><matchDateTime>2012-06-09T20:45:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-09T18:45:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Deutschland</nameTeam1><nameTeam2>Portugal</nameTeam2><idTeam1>725</idTeam1><idTeam2>149</idTeam2><iconUrlTeam1>http://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/20px-Flag_of_Germany.svg.png</iconUrlTeam1><iconUrlTeam2>http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/20px-Flag_of_Portugal.svg.png</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-10T13:56:49.51</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>522</locationID><locationCity>Lemberg</locationCity><locationStadium>Arena
+        Lwiw</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18803</matchID><matchDateTime>2012-06-13T20:45:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-13T18:45:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Niederlande</nameTeam1><nameTeam2>Deutschland</nameTeam2><idTeam1>147</idTeam1><idTeam2>725</idTeam2><iconUrlTeam1>http://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/20px-Flag_of_the_Netherlands.svg.png</iconUrlTeam1><iconUrlTeam2>http://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/20px-Flag_of_Germany.svg.png</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:17:19.157</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>521</locationID><locationCity>Charkiw</locationCity><locationStadium>Metalist
+        Stadium</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18804</matchID><matchDateTime>2012-06-13T18:00:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-13T16:00:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Dänemark</nameTeam1><nameTeam2>Portugal</nameTeam2><idTeam1>758</idTeam1><idTeam2>149</idTeam2><iconUrlTeam1>http://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/20px-Flag_of_Denmark.svg.png</iconUrlTeam1><iconUrlTeam2>http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/20px-Flag_of_Portugal.svg.png</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:17:08.797</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>522</locationID><locationCity>Lemberg</locationCity><locationStadium>Arena
+        Lwiw</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18805</matchID><matchDateTime>2012-06-17T20:45:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-17T18:45:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Portugal</nameTeam1><nameTeam2>Niederlande</nameTeam2><idTeam1>149</idTeam1><idTeam2>147</idTeam2><iconUrlTeam1>http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/20px-Flag_of_Portugal.svg.png</iconUrlTeam1><iconUrlTeam2>http://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/20px-Flag_of_the_Netherlands.svg.png</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:17:28.2</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>521</locationID><locationCity>Charkiw</locationCity><locationStadium>Metalist
+        Stadium</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18806</matchID><matchDateTime>2012-06-17T20:45:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-17T18:45:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Dänemark</nameTeam1><nameTeam2>Deutschland</nameTeam2><idTeam1>758</idTeam1><idTeam2>725</idTeam2><iconUrlTeam1>http://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/20px-Flag_of_Denmark.svg.png</iconUrlTeam1><iconUrlTeam2>http://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/20px-Flag_of_Germany.svg.png</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:17:36.087</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>522</locationID><locationCity>Lemberg</locationCity><locationStadium>Arena
+        Lwiw</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18807</matchID><matchDateTime>2012-06-10T18:00:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-10T16:00:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Spanien</nameTeam1><nameTeam2>Italien</nameTeam2><idTeam1>170</idTeam1><idTeam2>145</idTeam2><iconUrlTeam1>http://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/20px-Flag_of_Spain.svg.png</iconUrlTeam1><iconUrlTeam2>http://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/20px-Flag_of_Italy.svg.png</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:12:33.04</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>525</locationID><locationCity>Danzig</locationCity><locationStadium>PGE
+        Arena Gdansk</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18808</matchID><matchDateTime>2012-06-10T20:45:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-10T18:45:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Irland</nameTeam1><nameTeam2>Kroatien</nameTeam2><idTeam1>2003</idTeam1><idTeam2>146</idTeam2><iconUrlTeam1>http://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/23px-Flag_of_Ireland.svg.png</iconUrlTeam1><iconUrlTeam2>http://www.openligadb.de/images/teamicons/Kroatien.gif</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-10T13:58:28.88</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>524</locationID><locationCity>Posen</locationCity><locationStadium>Städtisches
+        Stadion</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18809</matchID><matchDateTime>2012-06-14T20:45:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-14T18:45:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Spanien</nameTeam1><nameTeam2>Irland</nameTeam2><idTeam1>170</idTeam1><idTeam2>2003</idTeam2><iconUrlTeam1>http://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/20px-Flag_of_Spain.svg.png</iconUrlTeam1><iconUrlTeam2>http://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/23px-Flag_of_Ireland.svg.png</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:13:08.997</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>525</locationID><locationCity>Danzig</locationCity><locationStadium>PGE
+        Arena Gdansk</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18810</matchID><matchDateTime>2012-06-14T18:00:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-14T16:00:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Italien</nameTeam1><nameTeam2>Kroatien</nameTeam2><idTeam1>145</idTeam1><idTeam2>146</idTeam2><iconUrlTeam1>http://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/20px-Flag_of_Italy.svg.png</iconUrlTeam1><iconUrlTeam2>http://www.openligadb.de/images/teamicons/Kroatien.gif</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:12:56.857</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>524</locationID><locationCity>Posen</locationCity><locationStadium>Städtisches
+        Stadion</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18811</matchID><matchDateTime>2012-06-18T20:45:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-18T18:45:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Kroatien</nameTeam1><nameTeam2>Spanien</nameTeam2><idTeam1>146</idTeam1><idTeam2>170</idTeam2><iconUrlTeam1>http://www.openligadb.de/images/teamicons/Kroatien.gif</iconUrlTeam1><iconUrlTeam2>http://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/20px-Flag_of_Spain.svg.png</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:13:17.35</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>525</locationID><locationCity>Danzig</locationCity><locationStadium>PGE
+        Arena Gdansk</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18812</matchID><matchDateTime>2012-06-18T20:45:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-18T18:45:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Italien</nameTeam1><nameTeam2>Irland</nameTeam2><idTeam1>145</idTeam1><idTeam2>2003</idTeam2><iconUrlTeam1>http://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/20px-Flag_of_Italy.svg.png</iconUrlTeam1><iconUrlTeam2>http://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/23px-Flag_of_Ireland.svg.png</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:13:27.503</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>524</locationID><locationCity>Posen</locationCity><locationStadium>Städtisches
+        Stadion</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18813</matchID><matchDateTime>2012-06-11T18:00:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-11T16:00:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Frankreich</nameTeam1><nameTeam2>England</nameTeam2><idTeam1>1647</idTeam1><idTeam2>755</idTeam2><iconUrlTeam1>http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/20px-Flag_of_France.svg.png</iconUrlTeam1><iconUrlTeam2>http://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/18px-Flag_of_England.svg.png</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:15:38.097</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>382</locationID><locationCity>Donezk</locationCity><locationStadium>Donbass
+        Arena</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18814</matchID><matchDateTime>2012-06-11T20:45:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-11T18:45:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Ukraine</nameTeam1><nameTeam2>Schweden</nameTeam2><idTeam1>2004</idTeam1><idTeam2>151</idTeam2><iconUrlTeam1>http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/20px-Flag_of_Ukraine.svg.png</iconUrlTeam1><iconUrlTeam2>http://www.openligadb.de/images/teamicons/Schweden.gif</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:16:32.51</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>526</locationID><locationCity>Kiew</locationCity><locationStadium>NSK
+        Olimpijskyj</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18815</matchID><matchDateTime>2012-06-15T20:45:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-15T18:45:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Schweden</nameTeam1><nameTeam2>England</nameTeam2><idTeam1>151</idTeam1><idTeam2>755</idTeam2><iconUrlTeam1>http://www.openligadb.de/images/teamicons/Schweden.gif</iconUrlTeam1><iconUrlTeam2>http://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/18px-Flag_of_England.svg.png</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:16:27.017</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>526</locationID><locationCity>Kiew</locationCity><locationStadium>NSK
+        Olimpijskyj</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18816</matchID><matchDateTime>2012-06-15T18:00:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-15T16:00:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Ukraine</nameTeam1><nameTeam2>Frankreich</nameTeam2><idTeam1>2004</idTeam1><idTeam2>1647</idTeam2><iconUrlTeam1>http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/20px-Flag_of_Ukraine.svg.png</iconUrlTeam1><iconUrlTeam2>http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/20px-Flag_of_France.svg.png</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:16:25.517</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>382</locationID><locationCity>Donezk</locationCity><locationStadium>Donbass
+        Arena</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18817</matchID><matchDateTime>2012-06-19T20:45:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-19T18:45:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>Schweden</nameTeam1><nameTeam2>Frankreich</nameTeam2><idTeam1>151</idTeam1><idTeam2>1647</idTeam2><iconUrlTeam1>http://www.openligadb.de/images/teamicons/Schweden.gif</iconUrlTeam1><iconUrlTeam2>http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/20px-Flag_of_France.svg.png</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:16:40.233</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>526</locationID><locationCity>Kiew</locationCity><locationStadium>NSK
+        Olimpijskyj</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata><Matchdata><matchID>18818</matchID><matchDateTime>2012-06-19T20:45:00</matchDateTime><TimeZoneID>W.
+        Europe Standard Time</TimeZoneID><matchDateTimeUTC>2012-06-19T18:45:00Z</matchDateTimeUTC><groupID>2959</groupID><groupOrderID>1</groupOrderID><groupName>Vorrunde</groupName><leagueID>429</leagueID><leagueName>EM
+        2012</leagueName><leagueSaison>2012</leagueSaison><leagueShortcut>em12</leagueShortcut><nameTeam1>England</nameTeam1><nameTeam2>Ukraine</nameTeam2><idTeam1>755</idTeam1><idTeam2>2004</idTeam2><iconUrlTeam1>http://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/18px-Flag_of_England.svg.png</iconUrlTeam1><iconUrlTeam2>http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/20px-Flag_of_Ukraine.svg.png</iconUrlTeam2><pointsTeam1>-1</pointsTeam1><pointsTeam2>-1</pointsTeam2><lastUpdate>2012-05-23T11:16:46.943</lastUpdate><matchIsFinished>false</matchIsFinished><matchResults
+        /><goals /><location><locationID>382</locationID><locationCity>Donezk</locationCity><locationStadium>Donbass
+        Arena</locationStadium></location><NumberOfViewers xsi:nil="true" /></Matchdata></GetMatchdataByLeagueSaisonResult></GetMatchdataByLeagueSaisonResponse></soap:Body></soap:Envelope>
+    http_version: 
+  recorded_at: Tue, 29 May 2012 22:31:37 GMT
+recorded_with: VCR 2.1.1

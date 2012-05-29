@@ -25,6 +25,10 @@ gem 'sqlite3', :group => [:development, :test]
 #   gem 'webrat'
 # end
 
+gem 'savon'
+
 group :test, :development do
   gem 'rspec-rails', '~> 2.0'
+  gem 'vcr'
+  gem 'webmock'
 end
