@@ -23,7 +23,7 @@ describe UpdateMatches do
     it "adds match to database" do
       OpenLigaMatch.should_receive(:all).and_return [response]
       match_class.should_receive(:find_by_match_id).with(4).and_return nil
-      match_class.should_receive(:create).with(:match_id => 4)
+      match_class.should_receive(:create!).with(:match_id => 4)
       UpdateMatches.perform
     end
   end
@@ -34,7 +34,7 @@ describe UpdateMatches do
     it "doesn't add match to database when it already exists" do
       OpenLigaMatch.should_receive(:all).and_return [response]
       match_class.should_receive(:find_by_match_id).with(4).and_return match
-      match_class.should_not_receive(:create)
+      match_class.should_not_receive(:create!)
       UpdateMatches.perform
     end
 
