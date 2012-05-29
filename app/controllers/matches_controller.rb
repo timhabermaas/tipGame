@@ -1,11 +1,8 @@
 class MatchesController < ApplicationController
-  
+
   before_filter :admin_required, :except => [ :index, :show ]
-  
+
   def index
-    if Match.update_matches
-      flash[:notice] = "Ergebnisse ganz aktuell neu geholt :)"
-    end
     @preliminaries = Preliminary.all
     @finals = Final.all
   end
@@ -20,7 +17,7 @@ class MatchesController < ApplicationController
 
   def create
     @match = Match.new params[:match]
-    
+
     if @match.save
       flash[:notice] = "Spiel wurde erfolgreich erstellt"
       redirect_to new_match_path

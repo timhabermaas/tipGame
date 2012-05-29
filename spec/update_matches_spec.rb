@@ -10,12 +10,11 @@ describe UpdateMatches do
   let (:response) do
     {
       :match_id => 4,
-      :match_results => {
-        :match_result => {
-          :points_team1 => 4,
-          :points_team2 => 3
-        }
-      }
+      :points_team1 => 4,
+      :points_team2 => 3,
+      :match_date_time_utc => "2010-08-21T18:43:28.94",
+      :name_team1 => "Deutschland",
+      :name_team2 => "Frankreich"
     }
   end
 
@@ -23,7 +22,7 @@ describe UpdateMatches do
     it "adds match to database" do
       OpenLigaMatch.should_receive(:all).and_return [response]
       match_class.should_receive(:find_by_match_id).with(4).and_return nil
-      match_class.should_receive(:create!).with(:match_id => 4)
+      match_class.should_receive(:create!).with(hash_including(:match_id => 4, :team_1_name => "Deutschland"))
       UpdateMatches.perform
     end
   end

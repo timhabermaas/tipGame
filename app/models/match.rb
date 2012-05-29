@@ -44,6 +44,10 @@ class Match < ActiveRecord::Base
     goals_team_2 ? goals_team_2 : 0
   end
 
+  def group
+    "Gruppe A"
+  end
+
   def points(team)
     if not finished?
       0
@@ -68,29 +72,6 @@ class Match < ActiveRecord::Base
 
   def running?
     Time.now > self.starts_at and not self.finished
-  end
-
-  def update_score(soap_match)
-    self.goals_first_half_team_1 = self.goals_team_1 = soap_match.matchResults.matchResult.last.pointsTeam1
-    self.goals_first_half_team_2 = self.goals_team_2 = soap_match.matchResults.matchResult.last.pointsTeam2
-    self.goals_team_1 = soap_match.matchResults.matchResult.first.pointsTeam1
-    self.goals_team_2 = soap_match.matchResults.matchResult.first.pointsTeam2
-    self.finished = soap_match.matchIsFinished
-
-    if self.save
-      p "updated successfull: #{soap_match.nameTeam1} : #{soap_match.nameTeam2} => #{self.goals_team_1} : #{self.goals_team_2}"
-      @@matches_updated = true
-    else
-      p "update failed"
-      @@matches_updated = false
-    end
-  end
-
-  def self.update_matches
-    @@matches_updated = false
-    service = SoapWrapper.new
-    service.update_results
-    @@matches_updated
   end
 
   def self.matches_by_group(group)
