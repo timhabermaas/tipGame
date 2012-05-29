@@ -1,7 +1,9 @@
+#encoding: utf-8
+
 class PasswordResetsController < ApplicationController
   before_filter :load_user_using_perishable_token, :only => [:edit, :update]
   before_filter :require_not_logged_in
-  
+
   def new
     render :new
   end
@@ -18,7 +20,7 @@ class PasswordResetsController < ApplicationController
       render :action => :new
     end
   end
-  
+
   def update
     @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
@@ -30,9 +32,9 @@ class PasswordResetsController < ApplicationController
       render :action => :edit
     end
   end
-  
-private  
-  def load_user_using_perishable_token  
+
+private
+  def load_user_using_perishable_token
     @user = User.find_using_perishable_token(params[:id])
     unless @user
       flash[:notice] = "Leider konnte dein Account nicht gefunden werden." +
@@ -41,7 +43,7 @@ private
       redirect_to root_url
     end
   end
-  
+
   def require_not_logged_in
     if logged_in?
       flash[:notice] = "Für diese Funktion darfst du nicht eingeloggt sein."

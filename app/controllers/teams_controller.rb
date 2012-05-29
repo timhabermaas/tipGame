@@ -1,7 +1,9 @@
+#encoding: utf-8
+
 class TeamsController < ApplicationController
-  
+
   before_filter :admin_required, :except => [ :index, :show ]
-  
+
   def index
     @teams = Team.all.select{|t| t.group != 'unklar'}.group_by{|t| t.group }.sort_by{|group, team| group } #@teams = Team.where('group <> ?', 'unklar' )
   end
@@ -12,7 +14,7 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new params[:team]
-    
+
     if @team.save
       flash[:notice] = "Team wurde erfolgreich erstellt"
       redirect_to new_team_path
@@ -27,7 +29,7 @@ class TeamsController < ApplicationController
 
   def update
     @team = Team.find params[:id]
-    
+
     if @team.update_attributes params[:team]
       flash[:notice] = "Mannschaft #{@team.name} wurde erfolgreich geändert"
       redirect_to teams_path
