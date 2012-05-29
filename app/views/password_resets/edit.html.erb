@@ -1,7 +1,6 @@
 <h2>Passwort ändern</h2>
 
 <% form_for @user, :url => password_reset_path, :method => :put do |f| %>
-  <%= f.error_messages %>
   <p>
   <%= f.label :password, "Passwort" %>
   <%= f.password_field :password %>

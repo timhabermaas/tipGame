@@ -1,4 +1,4 @@
-TipWM::Application.routes.draw do |map|
+TipWM::Application.routes.draw do
   get "sessions/new"
 
   resource :session
@@ -6,17 +6,17 @@ TipWM::Application.routes.draw do |map|
   resources :users
 
   resource :tips
-  
+
   resources :teams
-  
+
   resources :matches
-  
+
   resources :preliminaries
-  
+
   resources :finals
-  
+
   resources :password_resets
-    
+
   match 'login' => 'sessions#new', :as => :login
 
   root :to => "matches#index"
