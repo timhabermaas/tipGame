@@ -1,12 +1,12 @@
 class TipsController < ApplicationController
-  
+
   before_filter :login_required
-  
+
 #TODO: check the order. there must be a mistake!
   def show
-    @preliminaries = Preliminary.all
-    @finals = Final.all
-    @tips = Tip.where(:user_id => current_user.id)
+    @preliminaries = Match.preliminary
+    @finals = Match.final
+    @tips = current_user.tips
     @user = current_user
   end
 

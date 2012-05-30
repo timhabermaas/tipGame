@@ -6,8 +6,12 @@
 
 <h2>Vorrunde</h2>
 <ul class="preliminary">
-<%= render :partial => 'print_match_list', :locals => { :matches => @preliminaries.group_by{ |p| p.group }.sort_by{ |group, matches| group.to_s }, :level => 3 } %>
+  <% @preliminaries.group_by{ |p| p.group }.each do |group, matches| %>
+    <%= render :partial => "group", :locals => { :matches => matches, :group => group, :level => 3 } %>
+  <% end %>
 </ul>
 <ul class="final">
-<%= render :partial => 'print_match_list', :locals => { :matches => @finals.group_by{ |f| f.round }.sort_by{ |round, matches| -matches.length }, :level => 2 } %>
+  <% @finals.group_by{ |p| p.round }.each do |round, matches| %>
+    <%= render :partial => "group", :locals => { :matches => matches, :group => round, :level => 2 } %>
+  <% end %>
 </ul>

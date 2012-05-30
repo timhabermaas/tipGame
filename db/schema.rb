@@ -11,19 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120530002806) do
+ActiveRecord::Schema.define(:version => 20120530010610) do
 
   create_table "matches", :force => true do |t|
-    t.datetime "starts_at",                                          :null => false
+    t.datetime "starts_at",                                       :null => false
     t.integer  "goals_first_half_team_1"
     t.integer  "goals_team_1"
     t.integer  "goals_first_half_team_2"
     t.integer  "goals_team_2"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "round",                   :default => "Vorrunde",    :null => false
-    t.string   "type",                    :default => "Preliminary", :null => false
-    t.boolean  "finished",                :default => false,         :null => false
+    t.string   "round",                   :default => "Vorrunde", :null => false
+    t.boolean  "finished",                :default => false,      :null => false
     t.integer  "match_id"
     t.string   "team_1_name"
     t.string   "team_2_name"

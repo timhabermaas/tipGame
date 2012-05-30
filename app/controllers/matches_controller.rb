@@ -1,10 +1,12 @@
+#encoding: utf-8
+
 class MatchesController < ApplicationController
 
   before_filter :admin_required, :except => [ :index, :show ]
 
   def index
-    @preliminaries = Preliminary.all
-    @finals = Final.all
+    @preliminaries = Match.preliminary.all
+    @finals = Match.final.all
   end
 
   def show
@@ -28,5 +30,16 @@ class MatchesController < ApplicationController
 
   def edit
     @match = Match.find params[:id]
+  end
+
+  def update
+    @match = Match.find params[:id]
+
+    if @match.update_attributes params[:match]
+      flash[:notice] = "Spiel wurde erfolgreich geändert"
+      redirect_to matches_path
+    else
+      render :edit
+    end
   end
 end

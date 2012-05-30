@@ -1,7 +1,0 @@
-<li>
-  <em class="teams"><%= truncate(match.team_1_name, :length => 11, :omission => ".") %> : <%= truncate(match.team_2_name, :length => 11, :omission => ".") %></em>
-  <em class="score"><%= tip ? "#{tip.score}" : "Tipp" %></em>
-  <em class="score"><%= "#{match.score}" %></em>
-  <em class="points"><%= tip && match.finished? ? tip.points : "-" %></em>
-  <small class="date"><%= match.starts_at %></small>
-</li>
