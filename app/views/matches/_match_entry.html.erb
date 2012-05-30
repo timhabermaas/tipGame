@@ -1,6 +1,6 @@
 <li class=<%= match.running? ? "'running'" : "'inactive'"%>>
   <% if admin? %>
-    <em class="id"><%= match.id %></em>
+    <em class="id"><%= link_to match.id, edit_match_path(match) %></em>
   <% end %>
   <em class="team"><%= truncate(match.team_1_name, :length => 11, :omission => ".") %></em>
   <em class="score"><%= "#{match.score}" %></em>
