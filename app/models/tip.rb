@@ -1,14 +1,13 @@
 class Tip < ActiveRecord::Base
-  require 'match_format'
   include MatchFormat
-  
+
   belongs_to :user
   belongs_to :match
-  
+
   validates_presence_of :user_id, :match_id
-  
+
   #attr_accessible :goals_team_1, :goals_team_2
-    
+
   # richtiger Gewinner => 1 Punkt
   # richtige Tordifferenz => 2 Punkte
   # richtiger Tipp => 4 Punkte
@@ -19,5 +18,8 @@ class Tip < ActiveRecord::Base
     return 1 if self.winner == match.winner
     return 0
   end
-  
+
+  def finished?
+    !match.finished?
+  end
 end
