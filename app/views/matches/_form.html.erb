@@ -1,7 +1,7 @@
 <%= form_for @match do |form| %>
   <p>
     <%= form.label :round %>
-    <%= form.select :round, Match.round_options %>
+    <%= form.select :round, Match::ROUNDS %>
   </p>
   <p>
     <%= form.label :group %>

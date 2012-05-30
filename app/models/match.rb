@@ -2,8 +2,7 @@ class Match < ActiveRecord::Base
   include MatchFormat
 
   GROUPS = ("A".."D").map { |c| "Gruppe #{c}" }
-
-  @@matches_updated = false
+  ROUNDS = ['Vorrunde', 'Achtelfinale', 'Viertelfinale', 'Halbfinale', 'Spiel um Platz Drei','Finale']
 
   has_many :tips, :dependent => :delete_all
 
@@ -22,16 +21,9 @@ class Match < ActiveRecord::Base
     where("starts_at < ?", Time.now)
   }
 
-  scope :matches_without_result, lambda {
-    where("matches.goals_team_1 IS NULL AND matches.goals_team_2 IS NULL")
-  }
+  scope :matches_without_result, where("matches.goals_team_1 IS NULL AND matches.goals_team_2 IS NULL")
 
-  scope :not_finished_matches, lambda {
-    where(:finished => false)
-  }
-  def self.round_options
-    ['Vorrunde', 'Achtelfinale', 'Viertelfinale', 'Halbfinale', 'Spiel um Platz Drei','Finale']
-  end
+  scope :not_finished_matches, where(:finished => false)
 
   def finished_goals_team_1
     p "1: --  #{team_1.name} : #{team_2.name}"
@@ -57,38 +49,7 @@ class Match < ActiveRecord::Base
     end
   end
 
-  def self.delete_goals_last_matches(number)
-    for match in Match.last_matches.limit(number) do
-      match.goals_team_1 = nil
-      match.goals_team_2 = nil
-      match.goals_first_half_team_1 = nil
-      match.goals_first_half_team_2 = nil
-      match.save
-    end
-  end
-
   def running?
     Time.now > self.starts_at and not self.finished
-  end
-
-  def self.matches_by_group(group)
-    Match.joins(:team_1).where("teams.group" => group)
-  end
-
-  def self.all_first_round_matches_by_group
-    groups = Hash.new
-    Team.team_groups.each do |group|
-      groups[group] = matches_by_group(group) #groups << :group => (matches_by_group(group))
-    end
-    groups
-  end
-
-  def self.all_matches_by_round
-    matches = Hash.new
-    round_options.each do |round|
-      matches[round] = Match.where(:round => round)
-    end
-    matches['Vorrunde'] = all_first_round_matches_by_group
-    matches
   end
 end
