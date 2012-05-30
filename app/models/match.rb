@@ -45,10 +45,6 @@ class Match < ActiveRecord::Base
     goals_team_2 ? goals_team_2 : 0
   end
 
-  def group
-    "Gruppe A"
-  end
-
   def points(team)
     if not finished?
       0
