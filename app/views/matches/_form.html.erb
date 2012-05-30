@@ -4,6 +4,10 @@
     <%= form.select :round, Match.round_options %>
   </p>
   <p>
+    <%= form.label :group %>
+    <%= form.select :group, Match::GROUPS, :include_blank => true %>
+  </p>
+  <p>
     <%= form.label :team_1_name, "Mannschaft 1" %>
     <%= form.text_field :team_1_name %>
   </p>

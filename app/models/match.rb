@@ -1,9 +1,15 @@
 class Match < ActiveRecord::Base
   include MatchFormat
 
+  GROUPS = ("A".."D").map { |c| "Gruppe #{c}" }
+
   @@matches_updated = false
 
+  has_many :tips, :dependent => :delete_all
+
   validates_presence_of :starts_at
+  validates_inclusion_of :group, :in => GROUPS, :allow_nil => true
+  validates_uniqueness_of :match_id
 
   scope :next_matches, lambda {
     order('matches.starts_at ASC').
