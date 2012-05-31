@@ -5,6 +5,7 @@ class Tip < ActiveRecord::Base
   belongs_to :match
 
   validates_presence_of :user_id, :match_id
+  validate :match_hasnt_started_yet
 
   #attr_accessible :goals_team_1, :goals_team_2
 
@@ -21,5 +22,10 @@ class Tip < ActiveRecord::Base
 
   def finished?
     !match.finished?
+  end
+
+private
+  def match_hasnt_started_yet
+    errors.add(:match, "can't add") if match.starts_at <= Time.now
   end
 end

@@ -35,4 +35,6 @@ end
 group :test do
   gem 'vcr'
   gem 'webmock'
+  gem 'timecop'
+  gem 'factory_girl_rails'
 end
