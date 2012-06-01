@@ -2,7 +2,7 @@ require "digest/sha1"
 
 class User < ActiveRecord::Base
   has_many :tips, :dependent => :destroy
-  accepts_nested_attributes_for :tips, :reject_if => lambda { |a| a[:score] == ':' }
+  accepts_nested_attributes_for :tips, :reject_if => lambda { |t| !Tip.new(t).valid_result? }
 
   before_save :encrypt_password, :if => :password_available?
   after_save :flush_password
