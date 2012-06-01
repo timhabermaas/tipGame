@@ -12,8 +12,6 @@ module MatchFormat
       scores = score.split(':', 2)
       self.goals_team_1 = scores.first.to_i
       self.goals_team_2 = scores.last.to_i
-    else
-      self.goals_team_1 = self.goals_team_2 = nil
     end
   end
 

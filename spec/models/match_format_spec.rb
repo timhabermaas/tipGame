@@ -31,11 +31,11 @@ describe MatchFormat do
       match.goals_team_2.should == 3
     end
 
-    it "sets goals to nil for invalid score" do
-      match = DummyMatch.new(3, 4)
+    it "doesn't change score for invalid score" do
+      match = DummyMatch.new(3, nil)
       match.score = "-:3"
-      match.goals_team_1.should be_nil
-      match.goals_team_2.should be_nil
+      match.goals_team_1.should == 3
+      match.goals_team_2.should == nil
     end
   end
 end
