@@ -37,8 +37,8 @@ private
   def load_user_using_perishable_token
     @user = User.find_using_perishable_token(params[:id])
     unless @user
-      flash[:notice] = "Leider konnte dein Account nicht gefunden werden." +
-      "Probier es nochmal mit copy&paste der Adresse der Email in den Browser." +
+      flash[:notice] = "Leider konnte dein Account nicht gefunden werden. " +
+      "Probier es nochmal mit copy&paste der Adresse der Email in den Browser. " +
       "Falls du weiterhin nicht weiter kommst, setze dein Passwort ein erneutes Mal zurück."
       redirect_to root_url
     end
