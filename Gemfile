@@ -8,6 +8,8 @@ gem 'rails', '3.1.4'
 gem 'sqlite3', :group => [:development, :test]
 gem 'pg', :group => :production
 
+gem 'jquery-rails', '>= 1.0.12'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
