@@ -1,10 +1,8 @@
 class UserMailer < ActionMailer::Base
-  default :from => "cin9247@gmail.com"
-
   def registration_confirmation(user)
     @user = user
     mail(:to => "#{user.name} <#{user.mail}>",
-         :from => "TippSpiel <info@alles-und-nicht-mehr.de>",
+         :from => "TippSpiel <cin9247@gmail.com>",
          :subject => "Willkommen bei TipEM" )
   end
 
@@ -12,7 +10,7 @@ class UserMailer < ActionMailer::Base
     @user = user
     @password_reset_url = edit_password_reset_url(user.perishable_token)
     mail(:to => "#{user.name} <#{user.mail}>",
-         :from => "Tippspiel",
+         :from => "Tippspiel <cin9247@gmail.com>",
          :subject => "TippSpiel.de - Neues Passwort anlegen")
   end
 end
