@@ -9,14 +9,14 @@ class Tip < ActiveRecord::Base
 
   #attr_accessible :goals_team_1, :goals_team_2
 
-  # richtiger Gewinner => 1 Punkt
-  # richtige Tordifferenz => 2 Punkte
+  # richtiger Gewinner => 2 Punkt
+  # richtige Tordifferenz => 3 Punkte
   # richtiger Tipp => 4 Punkte
   def points
     return 0 unless match.finished?
     return 4 if self.score == match.score
-    return 2 if self.goals_diff == match.goals_diff
-    return 1 if self.winner == match.winner
+    return 3 if self.goals_diff == match.goals_diff
+    return 2 if self.winner == match.winner
     return 0
   end
 
