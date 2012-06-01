@@ -39,4 +39,7 @@ group :test do
   gem 'webmock'
   gem 'timecop'
   gem 'factory_girl_rails'
+  gem 'ZenTest'
+  gem 'autotest-growl'
+  gem 'autotest-fsevent'
 end

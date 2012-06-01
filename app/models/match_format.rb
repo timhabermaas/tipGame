@@ -1,6 +1,6 @@
 module MatchFormat
   def score
-    if self.finished?
+    if valid_result?
       "#{goals_team_1}:#{goals_team_2}"
     else
       "-:-"
@@ -8,9 +8,13 @@ module MatchFormat
   end
 
   def score=(score)
-    scores = score.split(':', 2)
-    self.goals_team_1 = scores.first
-    self.goals_team_2 = scores.last
+    if score.strip =~ /[0-9]+:[0-9]+/
+      scores = score.split(':', 2)
+      self.goals_team_1 = scores.first.to_i
+      self.goals_team_2 = scores.last.to_i
+    else
+      self.goals_team_1 = self.goals_team_2 = nil
+    end
   end
 
   def half_time_score
@@ -41,8 +45,7 @@ module MatchFormat
     [self.goals_team_1, self.goals_team_2]
   end
 
-  def has_goals?
-    goals_team_1 && goals_team_2
+  def valid_result?
+    goals_team_1.present? and goals_team_2.present?
   end
-
 end
