@@ -30,6 +30,8 @@ gem 'jquery-rails', '>= 1.0.12'
 
 gem 'savon'
 
+gem 'dynamic_form'
+
 group :test, :development do
   gem 'rspec-rails', '~> 2.0'
 end

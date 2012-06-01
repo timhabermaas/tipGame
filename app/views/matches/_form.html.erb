@@ -1,4 +1,5 @@
 <%= form_for @match do |form| %>
+  <%= form.error_messages %>
   <p>
     <%= form.label :round %>
     <%= form.select :round, Match::ROUNDS %>

@@ -1,5 +1,6 @@
 <h1>Registriere dich zum erfolgreichen Tippen</h1>
 <%= form_for @user do |form| %>
+  <%= form.error_messages %>
   <p>
     <%= form.label :name %>
     <%= form.text_field :name %>

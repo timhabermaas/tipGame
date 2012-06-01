@@ -2,6 +2,7 @@
 <p>Auf geht's. Hau rein und gib deine Tipps ab :)</p>
 
 <%= form_for @user, :url => { :action => 'update', :controller => 'tips' } do |f| %>
+  <%= f.error_messages %>
 <ul>
   <% @user.tips.sort_by{|t| t.match.starts_at }.each do |tip| %>
     <% if tip.match.starts_at.past? %>
