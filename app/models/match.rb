@@ -7,7 +7,7 @@ class Match < ActiveRecord::Base
   has_many :tips, :dependent => :delete_all
 
   validates_presence_of :starts_at
-  validates_inclusion_of :group, :in => GROUPS, :allow_nil => true
+  validates_inclusion_of :group, :in => GROUPS, :allow_blank => true
   validates_uniqueness_of :match_id
 
   scope :next_matches, lambda {
