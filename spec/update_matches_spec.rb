@@ -17,8 +17,8 @@ describe UpdateMatches do
       :name_team2 => "Frankreich",
       :group_name => "Achtelfinale",
       :match_is_finished => true,
-      :match_results => [{:result_order_id => 1, :points_team1 => 4, :points_team2 => 3},
-                         {:result_order_id => 2, :points_team1 => 2, :points_team2 => 1}]
+      :points_first_half_team1 => 2,
+      :points_first_half_team2 => 1
     })
   end
 
@@ -46,17 +46,6 @@ describe UpdateMatches do
       OpenLigaMatch.should_receive(:all).and_return [response]
       match_class.should_receive(:find_by_match_id).with(4).and_return match
       UpdateMatches.perform
-    end
-
-    context "isn't finished and has no match results" do
-      before { response.stub(:match_results).and_return(nil) }
-
-      it "doesn't crash" do
-        match.should_receive(:update_attributes).with(hash_including(:goals_team_1 => 4, :goals_team_2 => 3, :round => "Achtelfinale", :goals_first_half_team_1 => nil))
-        OpenLigaMatch.should_receive(:all).and_return [response]
-        match_class.should_receive(:find_by_match_id).with(4).and_return match
-        UpdateMatches.perform
-      end
     end
   end
 end

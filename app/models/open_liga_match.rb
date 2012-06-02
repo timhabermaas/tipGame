@@ -4,7 +4,7 @@ class OpenLigaMatch
   document "http://www.OpenLigaDB.de/Webservices/Sportsdata.asmx?WSDL"
 
   attr_accessor :match_id, :match_date_time_utc, :group_id, :group_order_id, :group_name, :name_team1,
-                :name_team2, :points_team1, :points_team2, :match_is_finished
+                :name_team2, :points_team1, :points_team2, :match_is_finished, :match_results
 
   def initialize(attributes = {})
     attributes.each do |name, value|
@@ -33,6 +33,24 @@ class OpenLigaMatch
       nil
     else
       @points_team2.to_i
+    end
+  end
+
+  def points_first_half_team1
+    half_time_results[:points_team1].try(:to_i)
+  end
+
+  def points_first_half_team2
+    half_time_results[:points_team2].try(:to_i)
+  end
+
+private
+  def half_time_results
+    results = @match_results[:match_result] if @match_results
+    if results
+      results.find { |r| r[:result_order_id].to_i == 2}
+    else
+      {}
     end
   end
 end
