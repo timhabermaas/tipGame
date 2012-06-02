@@ -24,6 +24,7 @@ describe Tip do
     let(:finished_match) { Factory(:match, :goals_team_1 => 2, :goals_team_2 => 1, :finished => true) }
     let(:running_match) { Factory(:match, :goals_team_1 => 2, :goals_team_2 => 1, :finished => false) }
     let(:unfinished_match) { Factory(:match, :goals_team_1 => nil, :goals_team_2 => nil, :finished => false) }
+    let(:draw_match) { Factory(:match, :goals_team_1 => 1, :goals_team_2 => 1, :finished => false) }
 
     it "returns 4 if the tip was 100% accurate" do
       Tip.new(:match => finished_match, :goals_team_1 => 2, :goals_team_2 => 1).points.should == 4
@@ -47,6 +48,10 @@ describe Tip do
 
     it "returns 0 for matches which don't have a result yet" do
       Tip.new(:match => unfinished_match, :goals_team_1 => 2, :goals_team_2 => 1).points.should == 0
+    end
+
+    it "returns 3 for tip: 2:2 and result 1:1" do
+      Tip.new(:match => draw_match, :goals_team_1 => 2, :goals_team_2 => 2).points.should == 3
     end
   end
 end
