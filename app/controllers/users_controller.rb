@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
+    unauthorized! unless current_user == @user or current_user.admin?
   end
 
   def new
@@ -29,11 +30,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    @user = User.find params[:id]
+    unauthorized! unless current_user == @user or current_user.admin?
   end
 
   def update
-    @user = current_user
+    @user = User.find params[:id]
+    unauthorized! unless current_user == @user or current_user.admin?
 
     if @user.update_attributes params[:user]
       flash[:notice] = "Deine Änderungen wurden gespeichert"
@@ -42,5 +45,4 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-
 end

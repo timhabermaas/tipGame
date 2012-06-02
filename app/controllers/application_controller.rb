@@ -1,11 +1,16 @@
 #encoding: utf-8
 
 class ApplicationController < ActionController::Base
+  class UnauthorizedException < Exception
+  end
+
+  rescue_from UnauthorizedException, :with => :redirect_to_login
+
   protect_from_forgery
 
   before_filter :set_time_zone
 
-  helper_method :current_user, :logged_in?, :login_required, :admin?, :admin_required
+  helper_method :current_user, :logged_in?, :admin?
 
 protected
   def current_user=(user)
@@ -24,9 +29,11 @@ protected
   end
 
   def login_required
-    if not logged_in?
-      redirect_to login_path
-    end
+    unauthorized! if not logged_in?
+  end
+
+  def unauthorized!
+    raise UnauthorizedException
   end
 
   def admin?
@@ -46,5 +53,9 @@ protected
 
   def set_time_zone
     Time.zone = "Berlin"
+  end
+
+  def redirect_to_login
+    redirect_to login_path
   end
 end
