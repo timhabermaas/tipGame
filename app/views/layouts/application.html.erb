@@ -40,7 +40,7 @@
         </li>
         <% if logged_in? %>
           <li <%= "class='checked'" if controller.controller_name == 'users' && params[:action] != 'index' %>>
-            <%= link_to "Profil", user_path(User.find session[:user_id]) %>
+            <%= link_to "Profil", current_user %>
           </li>
           <li <%= "class='checked'" if controller.controller_name == 'sessions' %>>
             <%= link_to "Logout", session_path, :method => :delete %>
