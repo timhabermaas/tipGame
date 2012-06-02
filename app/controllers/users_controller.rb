@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_filter :login_required, :except => [:new, :create, :index]
 
   def index
-    @users = User.all
+    @users = User.includes(:tips => :match).sort_by(&:points).reverse
   end
 
   def show

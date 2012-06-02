@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
   end
 
   def points
-    tips.inject(0) {|sum, tip| sum + tip.points}
+    @points ||= tips.inject(0) {|sum, tip| sum + tip.points}
   end
 
 private
