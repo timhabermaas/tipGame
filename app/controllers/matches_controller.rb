@@ -9,10 +9,6 @@ class MatchesController < ApplicationController
     @finals = Match.final.all
   end
 
-  def show
-    @match = Match.find params[:id]
-  end
-
   def new
     @match = Match.new
   end
