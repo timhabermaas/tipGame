@@ -33,10 +33,10 @@
           <% link = session[:user_id] ? tips_path : new_session_path %>
           <%= link_to "Tipps", link %>
         </li>
+        <li <%= "class='checked'" if controller.controller_name == 'users' && params[:action] == 'index' %>>
+          <%= link_to "Mitspieler", users_path %>
+        </li>
         <% if logged_in? %>
-          <li <%= "class='checked'" if controller.controller_name == 'users' && params[:action] == 'index' %>>
-            <%= link_to "Tipperliste", users_path %>
-          </li>
           <li <%= "class='checked'" if controller.controller_name == 'users' && params[:action] != 'index' %>>
             <%= link_to "Profil", user_path(User.find session[:user_id]) %>
           </li>
