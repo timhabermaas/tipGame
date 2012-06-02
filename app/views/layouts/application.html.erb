@@ -47,7 +47,7 @@
           <li <%= "class='checked'" if controller.controller_name == 'sessions' %>>
             <%= link_to "Login", new_session_path %>
           </li>
-          <li <%= "class='checked'" if controller.controller_name == 'users' %>>
+          <li <%= "class='checked'" if controller.controller_name == 'users' && params[:action] == 'new' %>>
             <%= link_to "Registrieren", new_user_path %>
           </li>
         <% end %>
