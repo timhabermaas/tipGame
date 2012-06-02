@@ -3,6 +3,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  before_filter :set_time_zone
+
   helper_method :current_user, :logged_in?, :login_required, :admin?, :admin_required
 
 protected
@@ -40,5 +42,9 @@ protected
 
   def action_forbidden_message
     flash[:notice] = "Hier geht's für dich nicht weiter!"
+  end
+
+  def set_time_zone
+    Time.zone = "Berlin"
   end
 end
