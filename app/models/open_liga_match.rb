@@ -21,10 +21,18 @@ class OpenLigaMatch
   end
 
   def points_team1
-    nil if @points_team1.try(:<, 0)
+    if @points_team1.nil? or @points_team1.to_i < 0
+      nil
+    else
+      @points_team1.to_i
+    end
   end
 
   def points_team2
-    nil if @points_team2.try(:<, 0)
+    if @points_team2.nil? or @points_team2.to_i < 0
+      nil
+    else
+      @points_team2.to_i
+    end
   end
 end
