@@ -9,6 +9,8 @@ class UpdateMatches
       else
         half_results = {}
       end
+      m[:points_team1] = nil if m[:points_team1].to_i < 0
+      m[:points_team2] = nil if m[:points_team2].to_i < 0
       mapping = {
         :match_id => m[:match_id],
         :team_1_name => m[:name_team1],

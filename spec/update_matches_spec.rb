@@ -28,6 +28,15 @@ describe UpdateMatches do
       match_class.should_receive(:create!).with(hash_including(:match_id => 4, :team_1_name => "Deutschland", :round => "Achtelfinale", :goals_first_half_team_2 => 1))
       UpdateMatches.perform
     end
+
+    it "doesn't set goals when they are negative" do
+      response[:points_team1] = -1
+      response[:points_team2] = -1
+      OpenLigaMatch.should_receive(:all).and_return [response]
+      match_class.should_receive(:find_by_match_id).with(4).and_return nil
+      match_class.should_receive(:create!).with(hash_including(:goals_team_1 => nil, :goals_team_2 => nil))
+      UpdateMatches.perform
+    end
   end
 
   context "match does exist" do
