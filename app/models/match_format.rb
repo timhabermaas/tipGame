@@ -46,4 +46,8 @@ module MatchFormat
   def valid_result?
     goals_team_1.present? and goals_team_2.present?
   end
+
+  def invalid_result?
+    !valid_result?
+  end
 end
