@@ -45,6 +45,7 @@ class Match < ActiveRecord::Base
   end
 
   def points_for_team_1
+    return 0 if invalid_result?
     if goals_team_1 > goals_team_2
       3
     elsif goals_team_1 < goals_team_2
@@ -55,6 +56,7 @@ class Match < ActiveRecord::Base
   end
 
   def points_for_team_2
+    return 0 if invalid_result?
     if goals_team_2 > goals_team_1
       3
     elsif goals_team_2 < goals_team_1
