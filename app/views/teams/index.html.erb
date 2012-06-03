@@ -8,7 +8,7 @@
         <li class="team-hitlist">
           <em class="team"><%= team.name %></em>
           <em class="team-points"><%= team.points %></em>
-          <em class="goals"><%= team.goals_self_and_opponent.first %> : <%= team.goals_self_and_opponent.last %></em>
+          <em class="goals"><%= team.goals %> : <%= team.goals_against %></em>
           <%= link_to "ändern", edit_team_path(team) if admin? %>
         </li>
       <% end %>

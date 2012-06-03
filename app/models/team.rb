@@ -27,18 +27,19 @@ class Team < ActiveRecord::Base
     p1 + p2
   end
 
-  def goals_self_and_opponent
-    diff = Match.where(:team_1_id => self.id).inject([0,0]){ |sum, match| [sum.first + match.finished_goals_team_1, sum.last + match.finished_goals_team_2] }
-    Match.where(:team_2_id => self.id).inject(diff){ |sum, match| [sum.first + match.finished_goals_team_2, sum.last + match.finished_goals_team_1] }
-  end
-
   def goal_diff
-    goals_self_and_opponent.first - goals_self_and_opponent.last
+    goals - goals_against
   end
 
   def goals
     g1 = home_matches.matches_with_result.where(:round => "Vorrunde").inject(0) { |sum, m| sum + m.goals_team_1 }
     g2 = guest_matches.matches_with_result.where(:round => "Vorrunde").inject(0) { |sum, m| sum + m.goals_team_2 }
+    g1 + g2
+  end
+
+  def goals_against
+    g1 = home_matches.matches_with_result.where(:round => "Vorrunde").inject(0) { |sum, m| sum + m.goals_team_2 }
+    g2 = guest_matches.matches_with_result.where(:round => "Vorrunde").inject(0) { |sum, m| sum + m.goals_team_1 }
     g1 + g2
   end
 end
