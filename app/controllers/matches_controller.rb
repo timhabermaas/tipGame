@@ -5,8 +5,8 @@ class MatchesController < ApplicationController
   before_filter :admin_required, :except => [ :index, :show ]
 
   def index
-    @preliminaries = Match.preliminary.all
-    @finals = Match.final.all
+    @preliminaries = Match.preliminary.group_by { |m| m.group.to_s }.sort_by { |group, m| group }
+    @finals = Match.final.group_by { |m| m.round }
   end
 
   def new

@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
   before_filter :admin_required, :except => [ :index, :show ]
 
   def index
-    @teams = Team.all.select{|t| t.group != 'unklar'}.group_by{|t| t.group } #@teams = Team.where('group <> ?', 'unklar' )
+    @teams = Team.all.group_by { |t| t.group.to_s }.sort_by { |group, t| group } #@teams = Team.where('group <> ?', 'unklar' )
   end
 
   def new

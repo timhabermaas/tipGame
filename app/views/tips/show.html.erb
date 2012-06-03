@@ -6,12 +6,12 @@
 
 <h2>Vorrunde</h2>
 <ul class="preliminary">
-  <% @preliminaries.group_by{ |p| p.group }.each do |group, matches| %>
+  <% @preliminaries.each do |group, matches| %>
     <%= render :partial => "group", :locals => { :matches => matches, :group => group, :level => 3 } %>
   <% end %>
 </ul>
 <ul class="final">
-  <% @finals.group_by{ |p| p.round }.each do |round, matches| %>
+  <% @finals.each do |round, matches| %>
     <%= render :partial => "group", :locals => { :matches => matches, :group => round, :level => 2 } %>
   <% end %>
 </ul>

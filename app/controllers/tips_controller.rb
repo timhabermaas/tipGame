@@ -4,8 +4,8 @@ class TipsController < ApplicationController
 
 #TODO: check the order. there must be a mistake!
   def show
-    @preliminaries = Match.preliminary
-    @finals = Match.final
+    @preliminaries = Match.preliminary.group_by { |m| m.group.to_s }.sort_by { |group, m| group }
+    @finals = Match.final.group_by { |m| m.round }
     @tips = current_user.tips
     @user = current_user
   end
