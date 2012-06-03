@@ -26,11 +26,9 @@
         <li <%= "class='checked'" if controller.controller_name == 'matches' %>>
           <%= link_to "Spiele", matches_path %>
         </li>
-        <!--
         <li <%= "class='checked'" if controller.controller_name == 'teams' %>>
           <%= link_to "Mannschaften", teams_path %>
         </li>
-        -->
         <li <%= "class='checked'" if controller.controller_name == 'tips' %>>
           <% link = session[:user_id] ? tips_path : new_session_path %>
           <%= link_to "Tipps", link %>
