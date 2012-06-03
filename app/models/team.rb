@@ -37,7 +37,8 @@ class Team < ActiveRecord::Base
   end
 
   def goals
-    goals_self_and_opponent.first
+    g1 = home_matches.where(:round => "Vorrunde").inject(0) { |sum, m| sum + m.goals_team_1 }
+    g2 = guest_matches.where(:round => "Vorrunde").inject(0) { |sum, m| sum + m.goals_team_2 }
+    g1 + g2
   end
-
 end

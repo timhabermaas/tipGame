@@ -16,4 +16,14 @@ describe Team do
       Team.find_by_name("Spanien").points.should == 4
     end
   end
+
+  describe "#goals" do
+    it "returns 4 for 'Spanien'" do
+      Team.find_by_name("Spanien").goals.should == 4
+    end
+
+    it "returns 2 for 'Griechenland'" do
+      Team.find_by_name("Griechenland").goals.should == 2
+    end
+  end
 end
