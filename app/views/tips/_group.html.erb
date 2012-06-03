@@ -2,7 +2,7 @@
   <ul>
     <h<%= level %>><%= group %></h<%= level %>>
       <% matches.each do |match| %>
-        <%= render :partial => "tips/match", :locals => { :muh => match, :tip => @tips.where(:match_id => match.id).first } %>
+        <%= render :partial => "tips/match", :locals => { :muh => match, :tip => @tips.find { |t| t.match_id == match.id } } %>
       <% end %>
   </ul>
 </li>

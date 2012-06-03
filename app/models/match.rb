@@ -25,14 +25,10 @@ class Match < ActiveRecord::Base
   scope :final, where("round <> 'Vorrunde'")
 
   def finished_goals_team_1
-    p "1: --  #{team_1.name} : #{team_2.name}"
-    p "goals: --- #{goals_team_1 ? goals_team_1 : 0}"
     goals_team_1 ? goals_team_1 : 0
   end
 
   def finished_goals_team_2
-    p "2: --  #{team_1.name} : #{team_2.name}"
-    p "goals: --- #{goals_team_2 ? goals_team_2 : 0}"
     goals_team_2 ? goals_team_2 : 0
   end
 

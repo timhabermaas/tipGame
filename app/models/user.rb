@@ -17,10 +17,8 @@ class User < ActiveRecord::Base
   validates_format_of :mail, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
 
   def self.authenticate_with_name(name, password)
-    p "in authenticate_with_name #{name}"
     user = User.where(:name => name).first
     if user && user.encrypted_password == Digest::SHA1.hexdigest(password + user.salt)
-    p "user: #{user}"
       user
     else
       nil
@@ -28,9 +26,7 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate_with_mail(mail, password)
-    p "in authenticate_with_mail #{mail}"
     user = User.where(:mail => mail).first
-    p "user: #{user}"
     if user && user.encrypted_password == Digest::SHA1.hexdigest(password + user.salt)
       user
     else
