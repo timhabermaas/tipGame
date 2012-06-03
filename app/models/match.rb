@@ -24,6 +24,7 @@ class Match < ActiveRecord::Base
     where("starts_at < ?", Time.now)
   }
   scope :matches_without_result, where("matches.goals_team_1 IS NULL AND matches.goals_team_2 IS NULL")
+  scope :matches_with_result, where("matches.goals_team_1 IS NOT NULL AND matches.goals_team_2 IS NOT NULL")
   scope :not_finished_matches, where(:finished => false)
   scope :preliminary, where(:round => "Vorrunde")
   scope :final, where("round <> 'Vorrunde'")
