@@ -36,7 +36,7 @@ describe Match do
       teams.should include("Deutschland")
       teams.should include("Spanien")
       teams.should include("Schweden")
-      match1.team_1.name.should == "Griechenland"
+      match1.reload.team_1.name.should == "Griechenland"
     end
 
     it "adds group to team if it's present" do
