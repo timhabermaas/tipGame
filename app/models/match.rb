@@ -5,10 +5,14 @@ class Match < ActiveRecord::Base
   ROUNDS = ['Vorrunde', 'Achtelfinale', 'Viertelfinale', 'Halbfinale', 'Spiel um Platz Drei','Finale']
 
   has_many :tips, :dependent => :delete_all
+  has_one :team_1, :class_name => "Team"
+  has_one :team_2, :class_name => "Team"
 
   validates_presence_of :starts_at
   validates_inclusion_of :group, :in => GROUPS, :allow_blank => true
   validates_uniqueness_of :match_id
+
+  before_save :build_team_objects
 
   scope :next_matches, lambda {
     order('matches.starts_at ASC').
@@ -68,5 +72,13 @@ class Match < ActiveRecord::Base
 
   def running?
     Time.now > self.starts_at and not self.finished
+  end
+
+private
+  def build_team_objects
+    self.team_1 = Team.find_by_name(team_1_name) || Team.new(:name => team_1_name)
+    self.team_2 = Team.find_by_name(team_2_name) || Team.new(:name => team_2_name)
+    self.team_1.group = group
+    self.team_2.group = group
   end
 end

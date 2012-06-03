@@ -4,6 +4,7 @@ FactoryGirl.define do
     team_2_name "Portugal"
     starts_at { DateTime.new }
     finished false
+    sequence(:match_id) { |n| n }
   end
 
   factory :tip do
