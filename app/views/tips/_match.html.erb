@@ -2,6 +2,6 @@
   <em class="teams"><%= truncate(muh.team_1_name, :length => 11, :omission => ".") %> : <%= truncate(muh.team_2_name, :length => 11, :omission => ".") %></em>
   <em class="score"><%= tip ? "#{tip.score}" : "Tipp" %></em>
   <em class="score"><%= "#{muh.score}" %></em>
-  <em class="points"><%= tip && muh.finished? ? tip.points : "-" %></em>
+  <em class="points"><%= tip && muh.valid_result? ? tip.points : "-" %></em>
   <small class="date"><%= muh.starts_at %></small>
 </li>
