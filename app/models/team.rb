@@ -5,6 +5,7 @@ class Team < ActiveRecord::Base
   has_many :guest_matches, :class_name => "Match", :foreign_key => :team_2_id
 
   validates_presence_of :name
+  validates_uniqueness_of :name
 
   def self.team_groups
     TEAM_GROUPS
