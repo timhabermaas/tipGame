@@ -44,6 +44,26 @@ class Match < ActiveRecord::Base
     end
   end
 
+  def points_for_team_1
+    if goals_team_1 > goals_team_2
+      3
+    elsif goals_team_1 < goals_team_2
+      0
+    else
+      1
+    end
+  end
+
+  def points_for_team_2
+    if goals_team_2 > goals_team_1
+      3
+    elsif goals_team_2 < goals_team_1
+      0
+    else
+      1
+    end
+  end
+
   def running?
     Time.now > self.starts_at and not self.finished
   end
