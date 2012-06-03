@@ -1,7 +1,8 @@
 class Team < ActiveRecord::Base
   TEAM_GROUPS = %w[A B C D E F G H unklar]
 
-  has_many :matches, :dependent => :destroy
+  has_many :home_matches, :class_name => "Match", :foreign_key => :team_1_id
+  has_many :guest_matches, :class_name => "Match", :foreign_key => :team_2_id
 
   validates_presence_of :name
 
@@ -19,14 +20,10 @@ class Team < ActiveRecord::Base
     TEAM_GROUPS
   end
 
-  def points_of_round(round = 'Vorrunde')
-    pts = Match.where(:round => round).where(:team_1_id => self.id).inject(0){ |sum, match| sum += match.points(self) }
-    Match.where(:round => round).where(:team_2_id => self.id).inject(pts){ |sum, match| sum += match.points(self) }
-  end
-
   def points
-    pts = Match.where(:team_1_id => self.id).inject(0){ |sum, match| sum += match.points(self) }
-    Match.where(:team_2_id => self.id).inject(pts){ |sum, match| sum += match.points(self) }
+    p1 = home_matches.where(:round => "Vorrunde").inject(0) { |sum, m| sum + m.points_for_team_1 }
+    p2 = guest_matches.where(:round => "Vorrunde").inject(0) { |sum, m| sum + m.points_for_team_2 }
+    p1 + p2
   end
 
   def goals_self_and_opponent
