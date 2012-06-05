@@ -22,6 +22,6 @@ class Tip < ActiveRecord::Base
 
 private
   def match_hasnt_started_yet
-    errors.add(:match, "can't add") if match.starts_at <= Time.now
+    errors.add(:match, "has already started") if match.started?
   end
 end

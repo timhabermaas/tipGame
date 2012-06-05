@@ -72,7 +72,11 @@ class Match < ActiveRecord::Base
   end
 
   def running?
-    Time.now > self.starts_at and not self.finished
+    started? and not finished?
+  end
+
+  def started?
+    Time.now >= self.starts_at
   end
 
 private
