@@ -34,6 +34,11 @@ gem 'dynamic_form'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.0'
+  gem 'guard-rspec'
+  if RUBY_PLATFORM.downcase.include?("darwin")
+    gem 'rb-fsevent'
+    gem 'growl'
+  end
 end
 
 group :test do
@@ -41,7 +46,4 @@ group :test do
   gem 'webmock'
   gem 'timecop'
   gem 'factory_girl_rails'
-  gem 'ZenTest'
-  gem 'autotest-growl'
-  gem 'autotest-fsevent'
 end
