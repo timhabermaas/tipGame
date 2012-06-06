@@ -20,9 +20,9 @@ describe User do
   end
 
   describe "#remindable?" do
-    let(:user1) { Factory(:user, :received_email_at => DateTime.new(2011, 1, 2, 13, 0)) }
-    let(:user2) { Factory(:user, :received_email_at => nil) }
-    let(:user3) { Factory(:user, :received_email_at => DateTime.new(2011, 1, 2, 17, 0)) }
+    let(:user1) { Factory(:user, :reminded_at => DateTime.new(2011, 1, 2, 13, 0)) }
+    let(:user2) { Factory(:user, :reminded_at => nil) }
+    let(:user3) { Factory(:user, :reminded_at => DateTime.new(2011, 1, 2, 17, 0)) }
 
 
     it "returns true if user didn't receive email in the last 24h" do

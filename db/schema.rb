@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(:version => 20120606012212) do
     t.datetime "updated_at"
     t.string   "perishable_token",   :default => "",    :null => false
     t.boolean  "admin",              :default => false, :null => false
-    t.datetime "received_email_at"
+    t.datetime "reminded_at"
   end
 
 end

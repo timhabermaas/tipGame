@@ -62,12 +62,12 @@ class User < ActiveRecord::Base
   end
 
   def reminded!
-    self.received_email_at = Time.now # TODO rename to reminded_at
+    self.reminded_at = Time.now
     save!
   end
 
   def remindable?
-    received_email_at.nil? || received_email_at < 24.hours.ago
+    reminded_at.nil? || reminded_at < 24.hours.ago
   end
 
 private
