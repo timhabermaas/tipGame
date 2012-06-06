@@ -1,0 +1,9 @@
+Hallo <%= @user.name %>,
+
+vergiss nicht die folgenden Spiele zu tippen, die in weniger als 24h beginnen:
+
+<% @matches.each do |match| %>
+* <%= match.team_1_name %> - <%= match.team_2_name %>
+<% end %>
+
+<%= tips_url %>

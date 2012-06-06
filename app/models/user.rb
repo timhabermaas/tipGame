@@ -61,6 +61,11 @@ class User < ActiveRecord::Base
     Match.start_in_less_than_24h - self.tips.map(&:match)
   end
 
+  def reminded!
+    self.received_email_at = Time.now # TODO rename to reminded_at
+    save!
+  end
+
   def remindable?
     received_email_at.nil? || received_email_at < 24.hours.ago
   end
