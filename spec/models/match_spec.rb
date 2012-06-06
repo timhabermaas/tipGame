@@ -1,6 +1,20 @@
 require "spec_helper"
 
 describe Match do
+  describe ".start_in_less_than_24h" do
+    let!(:match1) { Factory(:match, :starts_at => DateTime.new(2010, 10, 2, 10, 0)) }
+    let!(:match2) { Factory(:match, :starts_at => DateTime.new(2010, 11, 2, 14, 0)) }
+    let!(:match3) { Factory(:match, :starts_at => DateTime.new(2010, 11, 2, 18, 0)) }
+
+    it "returns matches which start in less than 24h" do
+      Timecop.freeze(DateTime.new(2010, 11, 1, 16, 0)) do
+        Match.start_in_less_than_24h.should_not include(match1)
+        Match.start_in_less_than_24h.should include(match2)
+        Match.start_in_less_than_24h.should_not include(match3)
+      end
+    end
+  end
+
   describe "#points_for_team_?" do
     it "returns 3 for team 1 and 0 for team 3 if team 1 won" do
       match = Factory.build(:match, :goals_team_1 => 2, :goals_team_2 => 1)

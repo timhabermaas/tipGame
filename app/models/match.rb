@@ -28,6 +28,7 @@ class Match < ActiveRecord::Base
   scope :not_finished, where(:finished => false)
   scope :preliminary, where(:round => "Vorrunde").order("starts_at")
   scope :final, where("round <> 'Vorrunde'").order("starts_at")
+  scope :start_in_less_than_24h, lambda { where(:starts_at => (Time.now)..(24.hours.from_now)) }
 
   def finished_goals_team_1
     goals_team_1 ? goals_team_1 : 0
