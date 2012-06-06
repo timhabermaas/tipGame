@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe User do
-  context "#forgotten_matches" do
+  describe "#forgotten_matches" do
     let(:user) { Factory(:user) }
     let!(:match1) { Factory(:match) }
     let!(:match2) { Factory(:match) }
@@ -16,6 +16,21 @@ describe User do
       user.forgotten_matches.should include(match1)
       user.forgotten_matches.should_not include(match2)
       user.forgotten_matches.should include(match3)
+    end
+  end
+
+  describe "#remindable?" do
+    let(:user1) { Factory(:user, :received_email_at => DateTime.new(2011, 1, 2, 13, 0)) }
+    let(:user2) { Factory(:user, :received_email_at => nil) }
+    let(:user3) { Factory(:user, :received_email_at => DateTime.new(2011, 1, 2, 17, 0)) }
+
+
+    it "returns true if user didn't receive email in the last 24h" do
+      Timecop.freeze(DateTime.new(2011, 1, 3, 15, 30)) do
+        user1.should be_remindable
+        user2.should be_remindable
+        user3.should_not be_remindable
+      end
     end
   end
 end

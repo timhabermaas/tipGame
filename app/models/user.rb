@@ -61,6 +61,10 @@ class User < ActiveRecord::Base
     Match.start_in_less_than_24h - self.tips.map(&:match)
   end
 
+  def remindable?
+    received_email_at.nil? || received_email_at < 24.hours.ago
+  end
+
 private
   def encrypt_password
     self.salt = SecureRandom.hex(10)

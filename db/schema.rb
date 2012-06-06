@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120603113203) do
+ActiveRecord::Schema.define(:version => 20120606012212) do
 
   create_table "matches", :force => true do |t|
     t.datetime "starts_at",                                       :null => false
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20120603113203) do
     t.datetime "updated_at"
     t.string   "perishable_token",   :default => "",    :null => false
     t.boolean  "admin",              :default => false, :null => false
+    t.datetime "received_email_at"
   end
 
 end
