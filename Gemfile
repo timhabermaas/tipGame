@@ -35,10 +35,8 @@ gem 'dynamic_form'
 group :test, :development do
   gem 'rspec-rails', '~> 2.0'
   gem 'guard-rspec'
-  if RUBY_PLATFORM.downcase.include?("darwin")
-    gem 'rb-fsevent'
-    gem 'growl'
-  end
+  gem 'rb-fsevent'
+  gem 'growl'
 end
 
 group :test do
