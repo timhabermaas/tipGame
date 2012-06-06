@@ -7,7 +7,7 @@ describe UserReminder do
   context "#remind" do
     let(:matches) { [stub(:match), stub(:match)] }
     let(:user1) { stub(:user1, :forgotten_matches => matches, :remindable? => true) }
-    let(:user2) { stub(:user2, :forgotten_matches => [], :remindable? => false) }
+    let(:user2) { stub(:user2, :forgotten_matches => [], :remindable? => true) }
 
     it "checks all users and reminds them by email if they forgot to bet on a match" do
       user_mailer.should_receive(:remind_about_matches).with(user1, matches) { mail }
