@@ -32,14 +32,14 @@ class Team < ActiveRecord::Base
   end
 
   def goals
-    g1 = home_matches.matches_with_result.where(:round => "Vorrunde").inject(0) { |sum, m| sum + m.goals_team_1 }
-    g2 = guest_matches.matches_with_result.where(:round => "Vorrunde").inject(0) { |sum, m| sum + m.goals_team_2 }
+    g1 = home_matches.with_result.where(:round => "Vorrunde").inject(0) { |sum, m| sum + m.goals_team_1 }
+    g2 = guest_matches.with_result.where(:round => "Vorrunde").inject(0) { |sum, m| sum + m.goals_team_2 }
     g1 + g2
   end
 
   def goals_against
-    g1 = home_matches.matches_with_result.where(:round => "Vorrunde").inject(0) { |sum, m| sum + m.goals_team_2 }
-    g2 = guest_matches.matches_with_result.where(:round => "Vorrunde").inject(0) { |sum, m| sum + m.goals_team_1 }
+    g1 = home_matches.with_result.where(:round => "Vorrunde").inject(0) { |sum, m| sum + m.goals_team_2 }
+    g2 = guest_matches.with_result.where(:round => "Vorrunde").inject(0) { |sum, m| sum + m.goals_team_1 }
     g1 + g2
   end
 end
