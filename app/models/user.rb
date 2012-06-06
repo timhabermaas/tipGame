@@ -57,6 +57,10 @@ class User < ActiveRecord::Base
     @points ||= tips.inject(0) {|sum, tip| sum + tip.points}
   end
 
+  def forgotten_matches
+    Match.start_in_less_than_24h - self.tips.map(&:match)
+  end
+
 private
   def encrypt_password
     self.salt = SecureRandom.hex(10)
