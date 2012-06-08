@@ -11,10 +11,6 @@ TipWM::Application.routes.draw do
 
   resources :matches
 
-  resources :preliminaries
-
-  resources :finals
-
   resources :password_resets
 
   match 'login' => 'sessions#new', :as => :login
