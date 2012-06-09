@@ -14,8 +14,13 @@ FactoryGirl.define do
     sequence(:match_id) { |n| n }
   end
 
+  factory :match_with_result, :parent => :match do
+    goals_team_1 3
+    goals_team_2 1
+  end
+
   factory :tip do
-    user_id 3
+    user
     match
     goals_team_1 2
     goals_team_2 3

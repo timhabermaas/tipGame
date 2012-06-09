@@ -29,10 +29,11 @@
         <li <%= "class='checked'" if controller.controller_name == 'teams' %>>
           <%= link_to "Mannschaften", teams_path %>
         </li>
-        <li <%= "class='checked'" if controller.controller_name == 'tips' %>>
-          <% link = session[:user_id] ? tips_path : new_session_path %>
-          <%= link_to "Tipps", link %>
-        </li>
+        <% if logged_in? %>
+          <li <%= "class='checked'" if controller.controller_name == 'tips' %>>
+            <%= link_to "Tipps", user_tips_path(current_user) %>
+          </li>
+        <% end %>
         <li <%= "class='checked'" if controller.controller_name == 'users' && params[:action] == 'index' %>>
           <%= link_to "Mitspieler", users_path %>
         </li>

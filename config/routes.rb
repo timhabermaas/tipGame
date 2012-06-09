@@ -3,9 +3,11 @@ TipWM::Application.routes.draw do
 
   resource :session
 
-  resources :users
+  resources :tips, :only => :index
 
-  resource :tips
+  resources :users do
+    resource :tips
+  end
 
   resources :teams
 

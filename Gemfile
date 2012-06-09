@@ -44,4 +44,5 @@ group :test do
   gem 'webmock'
   gem 'timecop'
   gem 'factory_girl_rails'
+  gem 'capybara'
 end

@@ -19,10 +19,8 @@ class Match < ActiveRecord::Base
     where("starts_at > ?", Time.now).
     limit(3)
   }
-  scope :last_matches, lambda {
-    order('matches.starts_at DESC').
-    where("starts_at < ?", Time.now)
-  }
+  scope :started, lambda { where("starts_at <= ?", Time.now) }
+  scope :recent, order("starts_at desc").limit(5)
   scope :without_result, where("matches.goals_team_1 IS NULL AND matches.goals_team_2 IS NULL")
   scope :with_result, where("matches.goals_team_1 IS NOT NULL AND matches.goals_team_2 IS NOT NULL")
   scope :not_finished, where(:finished => false)

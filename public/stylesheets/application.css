@@ -1,7 +1,7 @@
 /* reset all styles with eric meyers' CSS reset */
-html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, thead, tr, th, td, 
-del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, 
-h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, 
+html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, thead, tr, th, td,
+del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
 dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
 	vertical-align: baseline;
 	font-family: inherit;
@@ -250,6 +250,10 @@ li.running {
               margin-top: 15px;
               margin-bottom: 20px;
             }
+        #content table td, th, tr {
+          border: 1px solid rgba(50, 130, 50, 0.5);
+          border-collapse: collapse;
+        }
     #footer {
       float: left;
       width: 840px;

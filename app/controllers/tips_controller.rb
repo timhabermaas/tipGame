@@ -1,6 +1,12 @@
 class TipsController < ApplicationController
 
-  before_filter :login_required
+  before_filter :login_required, :except => [:index]
+
+  def index
+    @matches = Match.started.recent.includes(:team_1, :team_2).reverse
+    @users = User.scoped
+    @tips = Tip.includes(:match, :user)
+  end
 
 #TODO: check the order. there must be a mistake!
   def show
@@ -19,7 +25,6 @@ class TipsController < ApplicationController
     end
   end
 
-#TODO: check the time for the update as matches mustn't have already begun
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
