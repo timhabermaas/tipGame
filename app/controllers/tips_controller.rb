@@ -29,7 +29,7 @@ class TipsController < ApplicationController
     @user = current_user
     if @user.update_attributes(params[:user])
       flash[:notice] = "Deine Tipps wurden gespeichert"
-      redirect_to tips_path
+      redirect_to user_tips_path(@user)
     else
       render :edit
     end
