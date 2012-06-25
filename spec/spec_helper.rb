@@ -28,3 +28,7 @@ VCR.configure do |c|
   c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   c.hook_into :webmock
 end
+
+Savon.configure do |c|
+  c.log = false
+end
